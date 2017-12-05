@@ -1,0 +1,40 @@
+<?php
+session_start();
+//require("dbconnect.php");
+$_SESSION['sID'] = 0;
+?>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Signin test</title>
+      <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
+      <link href="signin.css" type="text/css" rel="stylesheet">
+   </head>
+   <body>
+      <div class="container">
+         <form class="form-signin" method="post" action="control.php">
+            <input type="hidden" name="act" value="login">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" name="loginMail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+            <div class="checkbox">
+               <label>
+               <input type="checkbox" value="remember-me"> Remember me
+               </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+         </form>
+         <form class="form-signin" method="post" action="signUp.php">
+           <input type="hidden" name="act" value="signup">
+           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        </form>
+      </div>
+      <script src="ie10-viewport-bug-workaround.js"></script>
+   </body>
+</html>
