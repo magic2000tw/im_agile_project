@@ -1,6 +1,12 @@
 <!doctype html>
+<?php
+session_start();
+$_SESSION['sID'] = 0;
+?>
 
-
+<?php include("loginModule/dbconnect.php");//導入按鈕?>
+<?php include("loginModule/loginControl.php");//導入按鈕?>
+<?php include("loginModule/loginModel.php");//導入按鈕?> 
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
@@ -64,16 +70,16 @@
                     <div class="form-content">
                       <h3 class="form-header">歡迎登入</h3>
 
-                      <form action="post">
+                      <form method="post" action="https://localhost/agile/loginModule/loginControl.php">
                         <!-- Username -->
                         <div class="form-group">
                           <label for="username-login-2">帳號</label>
-                          <input type="text" id="username-login-2" class="form-control" placeholder="請輸入帳號">
+                          <input type="text" name="loginMail" class="form-control" placeholder="請輸入帳號">
                         </div>
                         <!-- Password -->
                         <div class="form-group">
                           <label for="pass-login-2">密碼</label>
-                          <input type="password" id="pass-login-2" class="form-control" placeholder="請輸入密碼">
+                          <input type="password" name="password" class="form-control" placeholder="請輸入密碼">
                           <span class="pull-right"><a href="#" class="forget-pass-link">忘記密碼</a></span>
                         </div>
                         <!-- Submit -->
