@@ -1,0 +1,26 @@
+trip
+-id (3) (primekey)
+-username (testname)
+-start_date (2017-01-1)
+-end_date (2017-01-03)
+-day (3)
+
+trip detail
+-id (trip id)
+-username (testname)
+-place (puli)(taichung rail way station)
+-day (1)(2)
+-no (1)(1)
+-staytime (60m)(90min)
+
+user
+-id (primekey)
+-loginMail
+-userName
+-password
+
+follow table
+-id (primekey)
+-user id
+-username
+-follow id
