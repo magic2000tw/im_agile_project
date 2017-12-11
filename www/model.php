@@ -5,10 +5,10 @@ function getUsername($id){
 	$sql="select userName from user where id=$id";
 	return mysqli_query($conn,$sql);
 }
-function getTripList(){
+function getTripList($userName){
 	global $conn;
-//	$user=mysqli_real_escape_string($conn, $userName);
-	$sql="select * from trip ";
+	$user=mysqli_real_escape_string($conn, $userName);
+	$sql="select * from trip where userName!='$user'";
 	return mysqli_query($conn, $sql);
 }
 
@@ -44,4 +44,12 @@ function deleteFollow($id){
 	$sql="delete from follow where id=$id";
 	return mysqli_query($conn,$sql);
 }	
+function copyTrip($userId,$userName,$tripName){
+	global $conn;
+	$userId=(int)$userId;
+	$userName=mysqli_real_escape_string($conn, $userName);
+	$tripName=mysqli_real_escape_string($conn, $tripName);
+	$sql="insert into trip";
+	$sql="insert into trip_detail";
+}
 ?>

@@ -23,5 +23,12 @@ switch ($action) {
 		deleteFollow($id);
 		header('Location:test_view_trip.php');
 		break;
+	case 'copyTrip':
+		$userName=$_SESSION['username'];
+		$userId=$_SESSION['userid'];
+		$tripName=$_REQUEST['name'];
+		copyTrip($userId,$userName,$tripName);
+		header('Location:test_view_trip.php');
+		break;
 }
 ?>

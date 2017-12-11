@@ -20,28 +20,30 @@ table, th, td {
 }
 </style>
 <body>
-    <p>trip view all</p>
-    <table width="500" borger="2">
+    <p>trip view all (not include yourself)</p>
+    <table width="600" borger="2">
     	<tr>
     		<th>id</th>
     		<th>username</th>
     		<th>trip name</th>
     		<th>start_date</th>
     		<th>end_date</th>
+    		<th>option</th>
     	</tr>
     	<?php
     		require_once("model.php");
     		$userName=$rss['userName'];
     		$_SESSION['username'] = $userName;
-    		$results=getTripList();
+    		$results=getTripList($userName);
     		while($rs=mysqli_fetch_array($results)){
     			echo "<tr><td>", $rs['id'] ,
     			"</td><td>" , $rs['username'] ,
     			"</td><td>" , $rs['name'] ,
     			"</td><td>" , $rs['start_date'],
     			"</td><td>" , $rs['end_date'],
-    			"</td><td>" , "<a href='test_view_trip_detail.php?id=",$rs['id'] ,"'>Detail</a>",
-    			"</td><td>" , "<a href='control.php?act=addFollow&name=",$rs['name'] ,"'>Follow this trip</a>",
+    			"</td><td>" , "<a href='test_view_trip_detail.php?id=",$rs['id'] ,"'>Detail </a>",
+    			"<a href='control.php?act=addFollow&name=",$rs['name'] ,"'>| Follow this trip</a>",
+    			"<a href='control.php?act=copyTrip&name=",$rs['name'] ,"'>| Copy this trip</a>",
     			"</td></tr>";	
     		}
     	?>
