@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>登入</title>
+    <title>註冊</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,15 +42,23 @@
             <div class="row mt-4">
                 <div class="container col-lg-7">
                     <div class="form-group">
-                        <label>用戶名/電郵</label>
-                        <input type="email" class="form-control" placeholder="輸入用戶名或電郵">
+                        <label>用戶名</label>
+                        <input type="text" class="form-control" placeholder="輸入用戶名">
                     </div>
                     <div class="form-group">
-                        <label>帳密</label>
-                        <input type="password" class="form-control" placeholder="輸入密碼">
+                        <label>電子郵件</label>
+                        <input type="email" class="form-control" placeholder="輸入電子郵件">
                     </div>
-                    <button type="submit" class="btn btn-sm" onclick="window.location='home.html'">登入</button>
-                    <button type="button" class="btn btn-sm" onclick="window.location='signup.html'">註冊</button>
+                    <div class="form-group">
+                        <label>設立帳密</label>
+                        <input type="password" class="form-control" placeholder="輸入帳密">
+                    </div>
+                    <div class="form-group">
+                        <label>確認帳密</label>
+                        <input type="password" class="form-control" placeholder="請輸入相同的密碼">
+                    </div>
+                    <button type="submit" class="btn btn-sm" onclick="window.location='login.html'">立即註冊</button>
+                    <button type="button" class="btn btn-sm" onclick="window.location='login.html'">返回</button>
                 </div>
             </div>
         </form>
