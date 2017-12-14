@@ -23,6 +23,10 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .navbar {
     padding: 15px 10px;
     background: #fff;
@@ -95,9 +99,8 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
-	padding: 20px;
-	background: #6d7fcc;
-	font-family: Poppins, sans-serif;
+    padding: 20px;
+    background: #6d7fcc;
 }
 
 #sidebar ul.components {
@@ -116,9 +119,8 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-	color: #7386D5;
-	background: #fff;
-	font-family: "微軟正黑體", "標楷體", "新細明體";
+    color: #7386D5;
+    background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
@@ -174,6 +176,103 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
+a:visited{
+  color:white;
+}
+a:active{
+  color:white;
+}
+a.panel.panel-default::before{
+    content:none;
+}
+.trip {
+    font-family: Microsoft JhengHei;
+}
+.trip-cell {
+    position: relative;
+    text-align: left;
+    color: white;
+    margin-top:20px;
+    margin-bottom:20px;
+    clear:both;
+}
+.trip-cell-profile-img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+}
+.trip-cell-title {
+    position: absolute;
+    bottom: 30px;
+    left: 100px;
+    font-size:50px;
+    font-family: Microsoft JhengHei;
+}
+.trip-cell-date {
+    position: absolute;
+    bottom: 10px;
+    left: 100px;
+    font-size:10px;
+}
+.day-flag {
+    position: relative;
+    left: 100px;
+    background-color: #ff33cc;
+    display:inline-block;
+    color:white;
+    font-size:200%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.trip-list-number {
+    font-size: 200%;
+}
+.trip-list-title {
+    font-size: 200%;
+    float:left;
+    position:relative;
+    left:15%;
+    margin-top:3%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 15px;
+    width:50%;
+    height: 10%;
+    color:black;
+}
+.trip-list-title span {
+    color: #666699;
+    font-size: 80%;
+}
+.trip-list-addbtn {
+    clear:both;
+    margin-top: 7%;
+    position: relative;
+    left:33%;
+    cursor:pointer;
+    top:15px;
+}
+#map {
+     height: 100%;
+     width: 80%;
+     position: relative;
+     /*margin-top: 5%;*/
+     top:0%;
+     left:0%;
+ }
+#date-number {
+    background-color:#fff;
+   border:1px solid  #ff33cc;
+   height:50px;
+   border-radius:50%;
+   -moz-border-radius:50%;
+   -webkit-border-radius:50%;
+   width:50px;
+}
 #content {
     width: 100%;
     padding: 20px;
@@ -182,4 +281,26 @@ a.article, a.article:hover {
     position: absolute;
     top: 0;
     right: 0;
+}
+#dialog {
+  width:70%;
+  height:70%;
+  /*border-style: solid;
+  border-width: 3px;
+  border-color: blue;*/
+  position: fixed;
+  top:20%;
+  left:5%;
+  z-index: 999;
+}
+#listing {
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  overflow: auto;
+  left: 80%;
+  top: 0px;
+  cursor: pointer;
+  overflow-x: hidden;
+
 }
