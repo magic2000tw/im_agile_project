@@ -95,8 +95,9 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
+	padding: 20px;
+	background: #6d7fcc;
+	font-family: Poppins, sans-serif;
 }
 
 #sidebar ul.components {
@@ -115,8 +116,9 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+	color: #7386D5;
+	background: #fff;
+	font-family: "微軟正黑體", "標楷體", "新細明體";
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
