@@ -1,11 +1,17 @@
 <!doctype html>
+<?php
+session_start();
+$_SESSION['sID'] = 0;
+?>
 
-
+<?php include("loginModule/dbconnect.php");//導入按鈕?>
+<?php include("loginModule/loginControl.php");//導入按鈕?>
+<?php include("loginModule/loginModel.php");//導入按鈕?> 
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Definity - Login Page - 2</title>
+        <title>Login</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -64,16 +70,16 @@
                     <div class="form-content">
                       <h3 class="form-header">歡迎登入</h3>
 
-                      <form action="post">
+                      <form method="post" action="loginControl.php">
                         <!-- Username -->
                         <div class="form-group">
                           <label for="username-login-2">帳號</label>
-                          <input type="text" id="username-login-2" class="form-control" placeholder="請輸入帳號">
+                          <input type="text" name="loginMail" class="form-control" placeholder="請輸入帳號">
                         </div>
                         <!-- Password -->
                         <div class="form-group">
                           <label for="pass-login-2">密碼</label>
-                          <input type="password" id="pass-login-2" class="form-control" placeholder="請輸入密碼">
+                          <input type="password" name="password" class="form-control" placeholder="請輸入密碼">
                           <span class="pull-right"><a href="#" class="forget-pass-link">忘記密碼</a></span>
                         </div>
                         <!-- Submit -->
@@ -96,95 +102,14 @@
         <!-- ========== Footer Widgets ========== -->
         
         <footer class="footer-widgets">
-          <div class="container">
-            <div class="row section">
-
-              <!-- About Us -->
-              <div class="col-md-3 col-sm-6 mb-sm-100">
-                <div class="widget about-widget">
-                  <h5 class="header-widget">About Us</h5>
-                  <p>Lorem ipsum dolor sit amet, eiusmod consectetur adipisicing elit, sed do tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
-
-                  <ul class="social-links">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                  </ul>
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-              <!-- Instagram Feed -->
-              <div class="col-md-3 col-sm-6 mb-sm-100">
-                <div class="widget gallery-widget">
-                  <h5 class="header-widget">Instagram Feed</h5>
-                  <ul>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="http://placehold.it/87x87/999/eee" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="http://placehold.it/87x87" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="http://placehold.it/87x87/999/eee" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="http://placehold.it/87x87" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="http://placehold.it/87x87/999/eee" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="http://placehold.it/87x87" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                  </ul>
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-              <!-- Twitter Feed -->
-              <div class="col-md-3 col-sm-6 mb-sm-100">
-                <div class="widget twitter-widget">
-                  <h5 class="header-widget">Twitter Feed</h5>
-                  <ul>
-                    
-                    <li>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <p>5 Reasons You Should Take a Sabbatical from Creative Work <a href="#">http://enva.to/NTa6F</a> by <a href="#">@envato</a> <span>- AUG 10</span></p>
-                    </li>
-
-                    <li>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <p>What is the enemy of <a href="#">#creativity</a>? <a href="#">http://enva.to/hVl5G</a>  [VIDEO] <br>by <a href="#">@envato</a> <span>- AUG 5</span></p>
-                    </li>
-
-                  </ul>
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-              <!-- Newsletter -->
-              <div class="col-md-3 col-sm-6">
-                <div class="widget newsletter-widget">
-                  <h5 class="header-widget">Newsletter</h5>
-                  
-                  <form action="post">
-                    <div class="form-group">
-                      <input type="email" name="w-newssletter" placeholder="Join our newsletter">
-                      <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </div>
-                  </form>
-
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-            </div><!-- / .row -->
-          </div><!-- / .container -->
-
-
           <!-- Copyright -->
           <div class="copyright">
             <div class="container">
               <div class="row">
                 
                 <div class="col-sm-6">
-                  <small>&copy; 2015 Definity. Made by <a class="no-style-link" href="http://themeforest.net/user/octarinethemes" target="_blank">OctarineThemes</a></small>
+                  <small>&copy; 2015 Definity. Made by OctarineThemes</small>
                 </div>
-
                 <div class="col-sm-6">
                   <small><a href="#page-top" class="pull-right to-the-top">To the top<i class="fa fa-angle-up"></i></a></small>
                 </div>
@@ -192,7 +117,6 @@
               </div><!-- / .row -->
             </div><!-- / .container -->
           </div><!-- / .copyright -->
-
         </footer><!-- / .footer-widgets -->
 
 
