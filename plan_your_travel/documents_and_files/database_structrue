@@ -6,7 +6,7 @@ trip
 -day (3)
 
 trip detail
--id (trip id)
+-trip_id (trip id) (trip.id==trip_detail.id)
 -username (testname)
 -place (puli)(taichung rail way station)
 -day (1)(2)
@@ -21,6 +21,6 @@ user
 
 follow table
 -id (primekey)
--user id
+-userid
 -username
--follow id
+-followTrip

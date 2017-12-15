@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>登入</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        
+        <!-- Page Content -->
+        <nav class="navbar navbar-dark bg-dark ">
+            <div class="container">
+                <div class="navbar-brand">
+                <!-- Logo -->
+                    <div>
+                        <a><img class="img-responsive"src="logo.png" height="80px" align="center"></a>
+                        <a><img class="img-responsive"src="name.png" height="40px" align="center"></a>
+                    </div>
+                
+                </div><!-- / .navbar-header -->
+                
+            </div>
+        </nav>
+        
+        <form>
+            <div class="row mt-4">
+                <div class="container col-lg-7">
+                    <div class="form-group">
+                        <label>用戶名/電郵</label>
+                        <input type="email" class="form-control" placeholder="輸入用戶名或電郵">
+                    </div>
+                    <div class="form-group">
+                        <label>帳密</label>
+                        <input type="password" class="form-control" placeholder="輸入密碼">
+                    </div>
+                    <button type="submit" class="btn btn-sm" onclick="window.location='home.html'">登入</button>
+                    <button type="button" class="btn btn-sm" onclick="window.location='signup.html'">註冊</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
