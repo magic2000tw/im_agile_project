@@ -15,6 +15,7 @@
         <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
         <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
     </head>
     <body>
@@ -89,12 +90,12 @@
                 <!--trip-plan-cells-->
                 <div class="trip">
                     <div class="panel-group" id="trip-titles">
-                        <div class="trip-cell">
+                        <div class="trip-title">
                             <a href="#mytrip1" class="panel panel-default" data-toggle="collapse" aria-expanded="false">
                                 <img src="landscape1.jpg"/>
-                                <img src="dog2.jpg" class="trip-cell-profile-img"/>
-                                <div class="trip-cell-title">日本東京之旅</div>
-                                <div class="trip-cell-date">2017/10/10~2017/10/15</div>
+                                <img src="dog2.jpg" class="trip-title-profile-img"/>
+                                <div class="trip-title-font">日本東京之旅</div>
+                                <div class="trip-title-date">2017/10/10~2017/10/15</div>
                             </a>
                         </div>
                         <div class="collapse trip-day" id="mytrip1">
@@ -102,17 +103,34 @@
                             <div class="day-flag">
                                     第一天(10/5)
                             </div>
-                            <div style="margin-top:5px;" class="trip-list">
-                                <ul class="trip-list-number" style="float:left;">
-                                    <li><span>10:00</span></li>
-                                    <li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-                                    <li><span>12:00</span></li>
-                                </ul>
-                                <p class="trip-list-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晴空樹<br><span>&nbsp;&nbsp;日本東京都墨田區押上１丁目１−２</span></p>
-                            </div>
-                            <div class="trip-list-addbtn"><i class="fas fa-plus-square fa-3x">新增旅遊景點</i></div>
+                            <ul id="day1" class="trip-list">
+                              <li>
+                                <div class="trip-cell">
+                                    <ul class="trip-list-number" style="float:left;">
+                                      <li><input class="timepicker"></li>
+                                      <li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+                                      <li><input class="timepicker"></li>
+                                    </ul>
+                                    <p class="trip-list-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晴空樹<br>
+                                      <span>&nbsp;&nbsp;日本東京都墨田區押上１丁目１−２</span>
+                                    </p>
+                                </div>
+                              </li>
+                              <li>
+                                <div  class="trip-cell">
+                                    <ul class="trip-list-number" style="float:left;">
+                                      <li><input class="timepicker"></li>
+                                      <li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+                                      <li><input class="timepicker"></li>
+                                    </ul>
+                                    <p class="trip-list-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晴空樹<br>
+                                      <span>&nbsp;&nbsp;日本東京都墨田區押上１丁目１−２</span>
+                                    </p>
+                                </div>
+                              </li>
+                            </ul>
                         </div>
-                        <!-- <div id="map"></div> -->
+                        <div class="trip-list-addbtn" id="addbtn-d1"><i class="fas fa-plus-square fa-3x">新增旅遊景點</i></div>
                     </div>
                 </div>
                 <!-- <i class="fas fa-plus-circle fa-7x" style="color:blue; position:fixed; bottom:20px; right:20px;"></i> -->
@@ -132,7 +150,7 @@
             </div>
             <div style="display: none">
               <div id="info-content">
-                <table>
+                <table class=".table-striped">
                   <tr id="iw-url-row" class="iw_table_row">
                     <td id="iw-icon" class="iw_table_icon"></td>
                     <td id="iw-url"></td>
@@ -159,15 +177,29 @@
           <!-- <div id="okbtn">OK</div>
           <div id="cancelbtn">cancel</div> -->
         </dialog>
-
+        <div style="display:none;" id="trip-cell-comp">
+          <li>
+            <div  class="trip-cell">
+                <ul class="trip-list-number" style="float:left;">
+                  <li><input class="timepicker"></li>
+                  <li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+                  <li><input class="timepicker"></li>
+                </ul>
+                <p class="trip-list-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晴空樹<br>
+                  <span>&nbsp;&nbsp;日本東京都墨田區押上１丁目１−２</span>
+                </p>
+            </div>
+          </li>
+        </div>
 
         <!-- jQuery CDN -->
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Bootstrap Js CDN -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- jQuery Custom Scroller CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQoy_tqD6vBnTFbPqpiezn3aUIGjGsOsU&libraries=places&callback=initMap"  async defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function () {
@@ -188,10 +220,36 @@
                 });
 
                 $('.trip-list-addbtn').on('click', function (){
-                    $('.overlay').fadeIn();
-                    $('#dialog')[0].show();
-                    google.maps.event.trigger(map, 'resize');
+                    // console.log(this.id);
+                    // $('.overlay').fadeIn();
+                    // $('#dialog')[0].show();
+                    // google.maps.event.trigger(map, 'resize');
+                    console.log($('#trip-cell-comp').html());
+                    $('#day1').append($('#trip-cell-comp').html());
+                    $('.timepicker').timepicker({
+                        timeFormat: 'h:mm p',
+                        interval: 30,
+                        minTime: '10',
+                        maxTime: '6:00pm',
+                        defaultTime: '11',
+                        startTime: '10:00',
+                        dynamic: false,
+                        dropdown: true,
+                        scrollbar: true
+                    });
                 });
+                $('.timepicker').timepicker({
+                    timeFormat: 'h:mm p',
+                    interval: 30,
+                    minTime: '10',
+                    maxTime: '6:00pm',
+                    defaultTime: '11',
+                    startTime: '10:00',
+                    dynamic: false,
+                    dropdown: true,
+                    scrollbar: true
+                });
+
                 $('#okbtn').on('click', function (){
                     $('.overlay').fadeOut();
                     $('#dialog')[0].close();
