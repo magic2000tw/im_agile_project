@@ -9,13 +9,17 @@
     <meta name="author" content="">
 
     <title>收藏景點</title>
-    
+
     <!-- basic bootstrap setting -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- sidebar setting -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <!-- webfont setting-->
     <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
     <style>
 
         body{
@@ -84,52 +88,37 @@
             </div>
         </nav>
         <div class="container" style="background-color:white">
-            <h2 class="btn btn-sm mt-2" style="background-color:gray;font-weight:bold;color:white" >收藏景點</h2>
             <div class="row mt-2">
-                <div class="col-md-3">
-                    <div class="card mb-2" >
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button" onclick="window.location='login.html'">
-                            景色名稱
+                <div class="col-md-12">
+                    <div class="trip">
+                        <div class="panel-group" id="trip-titles">
+                            <div class="trip-cell">
+                                <a href="#mytrip1" class="panel panel-default" data-toggle="collapse" aria-expanded="false">
+                                    <img src="landscape1.jpg" width="100%"/>
+                                    <img src="dog2.jpg" class="trip-cell-profile-img"/>
+                                    <div class="trip-cell-title">日本東京之旅</div>
+                                    <div class="trip-cell-date">2017/10/10~2017/10/15</div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
+                    <div class="collapse trip-day col-md-12" id="mytrip1">
+                        <div class="day-flag">
+                                第一天(10/5)
+                        </div>
+                        <div style="margin-top:5px;" class="trip-list">
+                            <ul class="trip-list-number" style="float:left;">
+                                <li><span>10:00</span></li>
+                                <li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+                                <li><span>12:00</span></li>
+                            </ul>
+                            <p class="trip-list-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晴空樹<br><span>&nbsp;&nbsp;日本東京都墨田區押上１丁目１−２</span></p>
+                        
+                        </div>
+                        <div class="trip-list-addbtn"> 
+                            <i class="fas fa-plus-square fa-3x">新增旅遊景點</i>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
