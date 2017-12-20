@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2017-12-20 09:47:49
+-- 產生時間： 2017-12-20 12:05:57
 -- 伺服器版本: 10.1.21-MariaDB
 -- PHP 版本： 7.1.1
 
@@ -49,19 +49,22 @@ INSERT INTO `follow` (`id`, `trip_id`, `userId`, `userName`, `followTrip`) VALUE
 
 CREATE TABLE `trip` (
   `id` int(10) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `username` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `about` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- 資料表的匯出資料 `trip`
 --
 
-INSERT INTO `trip` (`id`, `username`, `start_date`, `end_date`, `name`) VALUES
-(1, 'haha', '2017-12-08', '2017-12-15', 'happy puli'),
-(2, 'two', '2017-12-01', '2017-12-04', 'good taipei');
+INSERT INTO `trip` (`id`, `username`, `start_date`, `end_date`, `name`, `about`) VALUES
+(1, 'haha', '2017-12-08', '2017-12-15', '埔里哪裡好？', '好山好水好無聊'),
+(2, 'two', '2017-12-01', '2017-12-04', '台北', '交通都超方便的'),
+(3, '簡靖騰', '2017-12-20', '2017-12-21', '又去台中', '只為了臭豆腐'),
+(4, '簡靖騰', '2017-12-01', '2017-12-02', '暨大', '待在宿舍');
 
 -- --------------------------------------------------------
 
@@ -146,7 +149,7 @@ ALTER TABLE `follow`
 -- 使用資料表 AUTO_INCREMENT `trip`
 --
 ALTER TABLE `trip`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- 使用資料表 AUTO_INCREMENT `user`
 --

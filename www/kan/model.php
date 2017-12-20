@@ -12,6 +12,13 @@ function getTripList($userName){
 	return mysqli_query($conn, $sql);
 }
 
+function getmyTrip($userName){
+	global $conn;
+	$user=mysqli_real_escape_string($conn, $userName);
+	$sql="select * from trip where userName='$user'";
+	return mysqli_query($conn, $sql);
+}
+
 function getTripDetail($id){
 	global $conn;
 	$id=(int) $id;
