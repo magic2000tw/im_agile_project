@@ -1,7 +1,7 @@
 <?php 
 $host_name = "localhost";  //主機名稱
 $user_name = "root";       //管理者帳號
-$password = "123456789";   //管理者密碼
+$password = "";   //管理者密碼
 $db_name = "blog";         //資料庫名稱
 
 $link = mysql_connect($host_name, $user_name, $password);   //連接mysql伺服器
