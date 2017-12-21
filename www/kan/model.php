@@ -58,6 +58,6 @@ function copyTrip($userId,$userName,$tripName){
 	$userName=mysqli_real_escape_string($conn, $userName);
 	$tripName=mysqli_real_escape_string($conn, $tripName);
 	$sql="insert into trip";
-	$sql="insert into trip_detail";
+	$sql2="insert into trip_detail";
 }
 ?>

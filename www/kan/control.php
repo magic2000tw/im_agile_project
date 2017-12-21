@@ -21,14 +21,21 @@ switch ($action) {
 	case 'deleteFollow':
 		$id=$_REQUEST['id'];
 		deleteFollow($id);
-		header('Location:test_view_trip.php');
+		header('Location: test_view_trip.php');
 		break;
 	case 'copyTrip':
 		$userName=$_SESSION['username'];
 		$userId=$_SESSION['userid'];
 		$tripName=$_REQUEST['name'];
 		copyTrip($userId,$userName,$tripName);
-		header('Location:test_view_trip.php');
+		header('Location: test_view_trip.php');
 		break;
+
+	case 'signUp':
+		$userName=$userName;
+		$password=(int)$password;
+		$loginMail=$loginMail;
+		signUp($userName,$password,$loginMail);
+		header('Location: login.php');
 }
 ?>
