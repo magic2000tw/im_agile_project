@@ -43,8 +43,13 @@ $rss=mysqli_fetch_array($results);
                       <div class="card mt-4" style="background-color:#5b88fc">
                           
                               <div class="card-body">
-                                  
-                                  <img src="user1.png" width="80%" style="display: block;margin:0 auto;">
+                                  <?php
+                                  require_once("model.php");
+                                  $results=getUsername($_SESSION['userid']);
+                                  $rs=mysqli_fetch_array($results);
+                                  echo '
+                                  <img src="',$rs['profile_location'],'" width="80%" style="display: block;margin:0 auto;">';
+                                  ?>
                               </div>
                           
                           
@@ -103,7 +108,7 @@ $rss=mysqli_fetch_array($results);
                         $results=getmyTrip($userName);
                         while($rs=mysqli_fetch_array($results)){
                             echo "<div class='card mb-4'>
-                                <img class='card-img-top' src='http://placehold.it/750x300'>
+                                <img class='card-img-top' src='",$rs['cover_location'],"'>
                                 <div class='card-body'>
                                     <h4 class='card-title'>",$rs['name'],"</h4>
                                     <p class='card-text'>",$rs['about'],"</p>
