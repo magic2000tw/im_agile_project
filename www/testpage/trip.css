@@ -64,6 +64,10 @@ a:active{
     margin-bottom:20px;
     clear:both;
 }
+.trip-title-background{
+    border-radius: 15px;
+    opacity: 0.7;
+}
 .trip-title-profile-img {
     border-radius: 50%;
     width: 80px;
@@ -114,7 +118,7 @@ a:active{
     float:left;
     border-radius: 15px;
     width:30%;
-    height: 30%;
+    height: 100%;
     object-fit: contain;
 }
 /* .trip-list-title {
@@ -158,7 +162,13 @@ a:active{
     cursor: pointer;
     border: none;
 }
-
+.drive-dir-btn {
+    float: right;
+    position: relative;
+    bottom: 10px;
+    cursor: pointer;
+    border: none;
+}
 #map {
      height: 100%;
      width: 70%;
@@ -197,7 +207,7 @@ a:active{
   z-index: 999;
   display: inline-block;
 }
-#listing {
+#side-panel {
   position: relative;
   width: 25%;
   height: 100%;
@@ -213,8 +223,15 @@ a:active{
 }
 #addDayBtn {
     position: fixed;
+    bottom: 110px;
+    right: 0px;
+    cursor: pointer;
+}
+#saveBtn {
+    position: fixed;
     bottom: 0px;
     right: 0px;
+    cursor: pointer;
 }
 #trip-day-list > li {
     margin-top:80px;

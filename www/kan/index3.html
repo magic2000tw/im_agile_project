@@ -15,8 +15,6 @@
         <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
         <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" rel="stylesheet">
 
     </head>
     <body>
@@ -67,11 +65,12 @@
 
             <!-- Page Content Holder -->
             <div id="content">
+
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navba r-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Open Sidebar</span>
                             </button>
@@ -89,44 +88,42 @@
                 </nav>
                 <!--trip-plan-cells-->
                 <div class="trip">
-                    <div id="trip-titles">
-                        <div class="trip-title">
-                            <img src="landscape1.jpg"/>
-                            <img src="dog2.jpg" class="trip-title-profile-img"/>
-                            <div class="trip-title-font">日本東京之旅</div>
-                            <div class="trip-title-date">2017/10/10~2017/10/15</div>
-                        </div>
-                        <div class="trip-day">
-                            <a href="#day1-spot-list"  data-toggle="collapse" aria-expanded="false" aria-controls="day1-spot-list">
-                                <div class="day-flag">
-                                    10/5
-                                </div>
+                    <div class="panel-group" id="trip-titles">
+                        <div class="trip-cell">
+                            <a href="#mytrip1" class="panel panel-default" data-toggle="collapse" aria-expanded="false">
+                                <img src="landscape1.jpg"/>
+                                <img src="dog2.jpg" class="trip-cell-profile-img"/>
+                                <div class="trip-cell-title">日本東京之旅</div>
+                                <div class="trip-cell-date">2017/10/10~2017/10/15</div>
                             </a>
-                            <div id="day1-spot-list" class="collapse">
-                                <ul class="trip-list" id="10-5">
-                                </ul>
-                                <div class="trip-list-addbtn" id="addbtn-d1"><i class="fas fa-plus-square fa-3x">新增旅遊景點</i></div>
-                            </div>
                         </div>
-
+                        <div class="collapse trip-day" id="mytrip1">
+                            <!--a href="#day1" class="panel panel-default" data-toggle="collapse" aria-expanded="false"-->
+                            <div class="day-flag">
+                                    第一天(10/5)
+                            </div>
+                            <div style="margin-top:5px;" class="trip-list">
+                                <ul class="trip-list-number" style="float:left;">
+                                    <li><span>10:00</span></li>
+                                    <li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+                                    <li><span>12:00</span></li>
+                                </ul>
+                                <p class="trip-list-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晴空樹<br><span>&nbsp;&nbsp;日本東京都墨田區押上１丁目１−２</span></p>
+                            </div>
+                            <div class="trip-list-addbtn"><i class="fas fa-plus-square fa-3x">新增旅遊景點</i></div>
+                        </div>
+                        <!-- <div id="map"></div> -->
                     </div>
                 </div>
                 <!-- <i class="fas fa-plus-circle fa-7x" style="color:blue; position:fixed; bottom:20px; right:20px;"></i> -->
             </div>
         </div>
+
+
+
         <div class="overlay"></div>
-        <div id="dialog">
-            <!-- <input id="autocomplete" placeholder="Enter your address" type="text" class="controls"> -->
-            <div class="input-group" id="searchBar">
-              <div class="form-group has-feedback has-clear">
-                <input type="text" class="form-control" id="autocomplete" placeholder="Enter text here">
-                <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
-              </div>
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-primary" id="exampleButton1">Search</button>
-              </span>
-            </div>
-            <div id="closeMapIcon"><i class="fa fa-window-close fa-5x" aria-hidden="true"></i></div>
+        <dialog id="dialog">
+            <input id="autocomplete" placeholder="Enter your address" type="text" class="controls">
             <div id="map"></div>
             <div id="listing">
               <table id="resultsTable">
@@ -135,7 +132,7 @@
             </div>
             <div style="display: none">
               <div id="info-content">
-                <table class=".table-striped">
+                <table>
                   <tr id="iw-url-row" class="iw_table_row">
                     <td id="iw-icon" class="iw_table_icon"></td>
                     <td id="iw-url"></td>
@@ -161,60 +158,51 @@
             </div>
           <!-- <div id="okbtn">OK</div>
           <div id="cancelbtn">cancel</div> -->
-        </div>
-        <div style="display:none;" id="trip-cell-comp">
-          <li>
-              <div  class="trip-cell">
-                  <ul class="trip-list-number" style="float:left;">
-                    <li><input class="timepicker"></li>
-                    <li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-                    <li><input class="timepicker"></li>
-                  </ul>
-                  <div class="trip-list-title">
-                      <img class="trip-list-title-img"></img>
-                      <p class="trip-list-title-name"><br>
-                        <span"trip-list-title-addr"></span>
-                      </p>
-                      <div class="deleteSpot" onclick="deleteSpot(this.parentElement.parentElement)"><i class="fas fa-times-circle fa-3x"></i></div>
-                      <small hidden ></small>
-                  </div>
-                  <ul class="sort-btns">
-                      <li onclick="moveUp(this.parentElement.parentElement.parentElement)"><i class="fas fa-sort-up fa-5x" ></i></li>
-                      <li onclick="moveDown(this.parentElement.parentElement.parentElement)"><i class="fas fa-sort-down fa-5x" ></i></li>
-                  </ul>
+        </dialog>
 
-              </div>
-          </li>
-        </div>
 
         <!-- jQuery CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <!-- Bootstrap Js CDN -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- jQuery Custom Scroller CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQoy_tqD6vBnTFbPqpiezn3aUIGjGsOsU&libraries=places&callback=initMap"  async defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
         <script type="text/javascript">
-            var map, places, infoWindow,markerLetter,marker,i,addSpotDate;
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+
+                $('.trip-list-addbtn').on('click', function (){
+                    $('.overlay').fadeIn();
+                    $('#dialog')[0].show();
+                    google.maps.event.trigger(map, 'resize');
+                });
+                $('#okbtn').on('click', function (){
+                    $('.overlay').fadeOut();
+                    $('#dialog')[0].close();
+                });
+            });
+            var map, places, infoWindow,markerLetter,marker,i;
             var markers = [];
             var autocomplete;
             var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
             var regular_marker = 'https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png';
             var hostnameRegexp = new RegExp('^https?://.+?/');
-            var timepicker_option = {
-                timeFormat: 'h:mm p',
-                interval: 30,
-                minTime: '10',
-                maxTime: '6:00pm',
-                defaultTime: '11',
-                startTime: '10:00',
-                dynamic: false,
-                dropdown: true,
-                scrollbar: true
-            };
             function initMap() {
                       map = new google.maps.Map(document.getElementById('map'), {
                       center: {lat: -34.397, lng: 150.644},
@@ -239,12 +227,9 @@
                       // Browser doesn't support Geolocation
                       handleLocationError(false, infoWindow, map.getCenter());
                     }
-                    var searchBar = document.getElementById('searchBar');
-                    var closeMapIcon = document.getElementById('closeMapIcon');
                     var input = document.getElementById('autocomplete');
                      places = new google.maps.places.PlacesService(map);
-                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchBar);
-                    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(closeMapIcon);
+                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
                     var searchBox = new google.maps.places.SearchBox(input);
                     searchBox.addListener('places_changed', function() {
                         var places = searchBox.getPlaces();
@@ -313,11 +298,11 @@
 
              // Listen for clicks on the map.
              this.map.addListener('click', this.handleClick.bind(this));
-             // this.map.addListener('rightclick', this.handleRightClick.bind(this));
+             this.map.addListener('rightclick', this.handleRightClick.bind(this));
            };
-           // ClickEventHandler.prototype.handleRightClick = function(event) {
-           //     console.log(event);
-           // }
+           ClickEventHandler.prototype.handleRightClick = function(event) {
+               console.log(event);
+           }
 
            ClickEventHandler.prototype.handleClick = function(event) {
              // console.log('You clicked on: ' + event.latLng);
@@ -354,8 +339,6 @@
                       addResult(place, 1);
                       marker.placeResult = place;
                       marker.addListener('click',showInfoWindow);
-                      infoWindow.open(map, marker);
-                      buildIWContent(place);
 
                   }
                 }
@@ -367,51 +350,33 @@
               var markerIcon = MARKER_PATH + markerLetter + '.png';
               var tr = document.createElement('tr');
               tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
-              // tr.onclick = function() {
-              //   google.maps.event.trigger(markers[i], 'click');
-              //   google.maps.event.trigger(marker, 'click');
-              // };
-              var iconTd = document.createElement('td');
-              var nameTd = document.createElement('td');
-              var addressTd = document.createElement('td');
-              var placeIdTd = document.createElement('td');
-              var photoUrlTd = document.createElement('td');
-              var icon = document.createElement('img');
-              var addbtn = document.createElement('button');
-              nameTd.onclick = function() {
+              tr.onclick = function() {
                 google.maps.event.trigger(markers[i], 'click');
                 google.maps.event.trigger(marker, 'click');
               };
+
+              var iconTd = document.createElement('td');
+              var nameTd = document.createElement('td');
+              var icon = document.createElement('img');
+              var addbtn = document.createElement('button');
               icon.src = markerIcon;
               icon.setAttribute('class', 'placeIcon');
               icon.setAttribute('className', 'placeIcon');
-              addressTd.style.display = 'none';
-              placeIdTd.style.display = 'none';
-              photoUrlTd.style.display = 'none';
-              addbtn.setAttribute('class','btn btn-primary addSpotBtn');
+              addbtn.setAttribute('class','btn btn-primary');
               addbtn.style.marginLeft = '5px';
               addbtn.innerHTML = 'add';
               var name = document.createTextNode(result.name);
-              var address = document.createTextNode(result.formatted_address);
-              var placeId = document.createTextNode(result.place_id);
-              var photoUrl = document.createTextNode(result.photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200}));
               iconTd.appendChild(icon);
               nameTd.appendChild(name);
-              addressTd.appendChild(address);
-              placeIdTd.appendChild(placeId);
-              photoUrlTd.appendChild(photoUrl);
               tr.appendChild(iconTd);
               tr.appendChild(nameTd);
-              tr.appendChild(addressTd);
-              tr.appendChild(placeIdTd);
-              tr.appendChild(photoUrlTd);
               tr.appendChild(addbtn);
               results.appendChild(tr);
             }
 
             // Get the place details for a hotel. Show the information in an info window,
             // anchored on the marker for the hotel that the user selected.
-            function showInfoWindow(place) {
+            function showInfoWindow() {
               var marker = this;
               places.getDetails({placeId: marker.placeResult.place_id},
                   function(place, status) {
@@ -424,10 +389,8 @@
             }
             // Load the place information into the HTML elements used by the info window.
             function buildIWContent(place) {
-              // document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
-              //     'src="' + place.icon + '"/>';
-              document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon"' +
-                  'src="' + place.photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) + '"/>';
+              document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
+                  'src="' + place.icon + '"/>';
               document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
                   '">' + place.name + '</a></b>';
               document.getElementById('iw-address').textContent = place.vicinity;
@@ -473,80 +436,7 @@
                 document.getElementById('iw-website-row').style.display = 'none';
               }
             }
-             function addSpot(name,addr,placeId,photoUrl){
-                 $('#trip-cell-comp').find('img').attr('src',photoUrl);
-                 $('#trip-cell-comp').find('p').html('<p class="trip-list-title-name">'+name+'<br>' +
-                   '<span"trip-list-title-addr">'+addr+'</span>' +'</p>');
-                 // $('#trip-cell-comp').find('span').html(addr);
-                 $('#trip-cell-comp').find('small').html(placeId);
-                 $('#10-5').append($('#trip-cell-comp').html());
-                 $('.timepicker').timepicker(timepicker_option);
-                 $('#dialog').css({'display':'none'});
-                 $('.overlay').fadeOut();
-                 // $( ".trip-list" ).sortable();
-                 // $( ".trip-list" ).disableSelection();
-             }
-             function deleteSpot(button){
-                 button.parentElement.removeChild(button)
 
-             }
-             function moveUp(element) {
-                 var before = $(element).prev();
-                 $(element).insertBefore(before);
-             }
-
-             function moveDown(element) {
-                 var after = $(element).next();
-                 $(element).insertAfter(after);
-             }
-            $(document).ready(function () {
-                $("#sidebar").mCustomScrollbar({
-                    theme: "minimal"
-                });
-
-                $('#dismiss, .overlay').on('click', function () {
-                    $('#sidebar').removeClass('active');
-                    $('.overlay').fadeOut();
-                });
-
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar').addClass('active');
-                    $('.overlay').fadeIn();
-                    $('.collapse.in').toggleClass('in');
-                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-                });
-
-                $('.trip-list-addbtn').on('click', function (){
-                    $('.overlay').fadeIn();
-                    $('#dialog').css({'display':'inherit'});
-                    google.maps.event.trigger(map, 'resize');
-                });
-                $('.timepicker').timepicker(timepicker_option);
-                $('#results').on('click','.addSpotBtn', function (){
-                    var name = $(this).siblings()[1].innerText;
-                    var addr = $(this).siblings()[2].innerText;
-                    var placeId = $(this).siblings()[3].innerText;
-                    var photoUrl = $(this).siblings()[4].innerText;
-                    addSpot(name,addr,placeId,photoUrl);
-                });
-                $('#closeMapIcon').on('click',function () {
-                    $('#dialog').css({'display':'none'});
-                    $('.overlay').fadeOut();
-                });
-                $('.has-clear input[type="text"]').on('input propertychange', function() {
-                  var $this = $(this);
-                  var visible = Boolean($this.val());
-                  $this.siblings('.form-control-clear').toggleClass('hidden', !visible);
-                }).trigger('propertychange');
-
-                $('.form-control-clear').click(function() {
-                  $(this).siblings('input[type="text"]').val('')
-                    .trigger('propertychange').focus();
-                });
-                $('.input-group').css({'width':'50%'});
-
-
-            });
 
         </script>
     </body>

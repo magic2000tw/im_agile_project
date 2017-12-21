@@ -5,13 +5,15 @@ trip
 -end_date (2017-01-03)
 -day (3)
 
-trip detail
+trip_detail
 -trip_id (trip id) (trip.id==trip_detail.id)
--username (testname)
--place (puli)(taichung rail way station)
--day (1)(2)
+-place_name (puli)(taichung rail way station)
+-place_addr
+-place_id
+-date (1)(2)
 -no (1)(1)
--staytime (60m)(90min)
+-start_time (60m)(90min)
+-end_time
 
 user
 -id (primekey)

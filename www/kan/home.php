@@ -1,3 +1,14 @@
+<?php
+if(!isset($_SESSION)){
+    session_start();
+}
+require_once("model.php");
+$userid=$_SESSION['userid'];
+$results=getUsername($userid);
+$rss=mysqli_fetch_array($results);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +23,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
@@ -39,7 +49,7 @@
                           
                           
                               <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
-                                  <small style="color:white;">賬戶名</small>
+                                  <small style="color:white;"><?php echo $rss['userName'];?></small>
                               </div>
                           
                       </div>
@@ -48,13 +58,13 @@
           </div>
           <div class="container mt-4">
             <div class="card mt-4">
-              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.html">我的行程</a>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.php">我的行程</a>
             </div>
             <div class="card mt-1">
                 <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.html">收藏景點</a>
               </div>
                 <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.html">登出</a>
+                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>
               </div>
           </div>
         </div>
@@ -80,33 +90,32 @@
                 </div>
             </div>
         </nav>
-        <div class="container" style="background-color:white">
-                <h2 class="btn btn-sm mt-2" style="background-color:gray;font-weight:bold;color:white" >我的行程</h2>
+        <div class="container col-md-8" style="background-color:white">
+            <h2 class="page-header col-md-4 mt-2" style="font-weight:bold;color:#5b88fc" >我的行程</h2><button type="button" class="btn btn-sm btn-success mt-2" align="right
+            " style="font-weight:bold;color:white" >新增</button>
             
             <div class="row mt-2">
                 <div class="col-md-8" >
-                    <div class="card mb-4">
-                        <img class="card-img-top" src="http://placehold.it/750x300">
-                        <div class="card-body">
-                            <h4 class="card-title">行程名稱</h4>
-                            <p class="card-text">行程介紹</p>
-                            <a href="#" class="btn btn-primary">查看</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                                2018年1月1日 至 2018年1月2日
-                            </div>
-                    </div>
-                    <div class="card mb-4">
-                        <img class="card-img-top" src="http://placehold.it/750x300">
-                        <div class="card-body">
-                            <h4 class="card-title">行程名稱</h4>
-                            <p class="card-text">行程介紹</p>
-                            <a href="#" class="btn btn-primary">查看</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                                2018年1月1日 至 2018年1月2日
-                            </div>
-                    </div>
+                    <?php
+                        require_once("model.php");
+                        $userName=$rss['userName'];
+                        $_SESSION['username'] = $userName;
+                        $results=getmyTrip($userName);
+                        while($rs=mysqli_fetch_array($results)){
+                            echo "<div class='card mb-4'>
+                                <img class='card-img-top' src='http://placehold.it/750x300'>
+                                <div class='card-body'>
+                                    <h4 class='card-title'>",$rs['name'],"</h4>
+                                    <p class='card-text'>",$rs['about'],"</p>
+                                    <a href='#'' class='btn btn-primary btn-sm'>查看</a>
+                                </div>
+                                    <div class='card-footer text-muted'>
+                                        ",$rs['start_date']," 至 ",$rs['end_date'],"
+                                    </div>
+                                </div>";   
+                        }
+                    ?>
+                    
                 </div>
             </div>
         </div>

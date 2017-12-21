@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 session_start();
-//require("dbconnect.php");
-
-//set the login mark to empty
-$_SESSION['uID'] = 0;
+$_SESSION['sID'] = 0;
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -58,16 +55,17 @@ $_SESSION['uID'] = 0;
             <div class="card mt-4 mb-4" style="margin:0 auto;">
                 <div class="card-header" style="background-color:#ebebeb">登入</div>
                 <div class="card-body">
-                    <form method="post" action="loginControl.php">
+                    <form method="post" action="https://localhost/pro/loginControl.php">
+                        <input type="hidden" name="act" value="login">
                         <div class="form-group">
                             <label>用戶名/電郵</label>
-                            <input type="email" class="form-control" name="loginMail"placeholder="輸入用戶名或電郵">
+                            <input type="text" class="form-control" name="loginMail"placeholder="輸入用戶名或電郵">
                         </div>
                         <div class="form-group">
                             <label>帳密</label>
-                            <input type="password" class="form-control" placeholder="輸入密碼">
+                            <input type="password" class="form-control" name="password" placeholder="輸入密碼">
                         </div>
-                        <button type="submit" class="btn col-md-2" onclick="window.location='home.html'">登入</button>
+                        <button type="submit" class="btn col-md-2" >登入</button>
                         <button type="button" class="btn col-md-2" onclick="window.location='signup.html'">註冊</button>
                     </form>
                 </div>

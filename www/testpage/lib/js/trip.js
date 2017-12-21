@@ -1,16 +1,17 @@
-var map, places, infoWindow,markerLetter,marker,i,addSpotDateId;
+// "use strict";
+var map, places, infoWindow,markerLetter,marker,i,$addSpotDate,directionsDisplay,directionsService;
 var markers = [];
 var autocomplete;
 var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 var regular_marker = 'https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png';
 var hostnameRegexp = new RegExp('^https?://.+?/');
 var timepicker_option = {
-    timeFormat: 'h:mm p',
+    timeFormat: 'HH:mm',
     interval: 30,
-    minTime: '10',
-    maxTime: '6:00pm',
+    minTime: '4:00',
+    maxTime: '23:59',
     defaultTime: '11',
-    startTime: '10:00',
+    startTime: '4:00',
     dynamic: false,
     dropdown: true,
     scrollbar: true
@@ -23,6 +24,8 @@ function initMap() {
         infoWindow = new google.maps.InfoWindow({
            content: document.getElementById('info-content')
          });
+         directionsDisplay = new google.maps.DirectionsRenderer();
+         directionsService = new google.maps.DirectionsService();
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -43,6 +46,8 @@ function initMap() {
         var closeMapIcon = document.getElementById('closeMapIcon');
         var input = document.getElementById('autocomplete');
          places = new google.maps.places.PlacesService(map);
+         directionsDisplay.setMap(map);
+         directionsDisplay.setPanel(document.getElementById('side-panel'));
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchBar);
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(closeMapIcon);
         var searchBox = new google.maps.places.SearchBox(input);
@@ -52,12 +57,13 @@ function initMap() {
                 return;
               }
               // Clear out the old markers.
-              if (marker) {
-                  marker.setMap(null);
-              }
-              markers.forEach(function(marker) {
-                marker.setMap(null);
-              });
+              clearMap();
+              // if (marker) {
+              //     marker.setMap(null);
+              // }
+              // markers.forEach(function(marker) {
+              //   marker.setMap(null);
+              // });
               markers = [];
               // For each place, get the icon, name and location.
               i = 0;
@@ -65,7 +71,6 @@ function initMap() {
               $('#results').empty();
               places.forEach(function(place) {
                 if (!place.geometry) {
-                  console.log("Returned place contains no geometry");
                   return;
                 }
                 markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -96,6 +101,21 @@ function initMap() {
         });
         var clickHandler = new ClickEventHandler(map, origin);
       }
+function clearMap(){
+    if (marker) {
+        marker.setMap(null);
+    }
+    if (markers.length > 0){
+        markers.forEach(function(marker) {
+          marker.setMap(null);
+        });
+    }
+    if (infoWindow){
+        infoWindow.close();
+    }
+    $('#side-panel').html('');
+    directionsDisplay.setMap(null);
+}
 
   /**
 * @constructor
@@ -115,12 +135,7 @@ var ClickEventHandler = function(map, origin) {
  this.map.addListener('click', this.handleClick.bind(this));
  // this.map.addListener('rightclick', this.handleRightClick.bind(this));
 };
-// ClickEventHandler.prototype.handleRightClick = function(event) {
-//     console.log(event);
-// }
-
 ClickEventHandler.prototype.handleClick = function(event) {
- // console.log('You clicked on: ' + event.latLng);
  // If the event has a placeId, use it.
 
  if (event.placeId) {
@@ -163,15 +178,15 @@ ClickEventHandler.prototype.handleClick = function(event) {
  }
 };
 function addResult(result, i) {
+    /*
+      <table id="resultsTable"><tbody id="results"></tbody></table>
+    */
+  $('#side-panel').html('<table id="resultsTable"><tbody id="results"></tbody></table>');
   var results = document.getElementById('results');
   var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
   var markerIcon = MARKER_PATH + markerLetter + '.png';
   var tr = document.createElement('tr');
   tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
-  // tr.onclick = function() {
-  //   google.maps.event.trigger(markers[i], 'click');
-  //   google.maps.event.trigger(marker, 'click');
-  // };
   var iconTd = document.createElement('td');
   var nameTd = document.createElement('td');
   var addressTd = document.createElement('td');
@@ -195,7 +210,7 @@ function addResult(result, i) {
   var name = document.createTextNode(result.name);
   var address = document.createTextNode(result.formatted_address);
   var placeId = document.createTextNode(result.place_id);
-  var photoUrl = document.createTextNode(result.photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200}));
+  var photoUrl = document.createTextNode(result.photos[0].getUrl({'maxWidth': 300, 'maxHeight': 300}));
   iconTd.appendChild(icon);
   nameTd.appendChild(name);
   addressTd.appendChild(address);
@@ -275,23 +290,18 @@ function buildIWContent(place) {
   }
 }
  function addSpot(name,addr,placeId,photoUrl){
-     var spotHtml = '<p class="trip-list-title-name">'+name+'<br>' +
-       '<p class="trip-list-title-addr">'+addr+'</p>' +'</p>';
+     var spotHtml = '<p class="trip-list-title-name">'+name+
+       '</p>'+ '<p class="trip-list-title-addr">'+addr+'</p>';
      var $img = $('#trip-cell-comp').find('img');
      var $dummy = $('#trip-cell-comp').find('dummy');
      $img.attr('src',photoUrl);
-     // $('#trip-cell-comp').find('p').html('<p class="trip-list-title-name">'+name+'<br>' +
-     //   '<span class="trip-list-title-addr">'+addr+'</span>' +'</p>');
-     console.log($dummy);
-     // $(spotHtml).insertAfter($img);
      $dummy.html(spotHtml);
      $('#trip-cell-comp').find('small').html(placeId);
-     $('#'+ addSpotDateId).append($('#trip-cell-comp').html());
+     // $('#'+ addSpotDateId).append($('#trip-cell-comp').html());
+     $addSpotDate.append($('#trip-cell-comp').html());
      $('.timepicker').timepicker(timepicker_option);
      $('#dialog').css({'display':'none'});
      $('.overlay').fadeOut();
-     // $( ".trip-list" ).sortable();
-     // $( ".trip-list" ).disableSelection();
  }
  function deleteSpot(button){
      button.parentElement.removeChild(button)
@@ -306,20 +316,112 @@ function buildIWContent(place) {
      var after = $(element).next();
      $(element).insertAfter(after);
  }
+ function re_arrange_date() {
+     var lastday;
+     var $dayList = $('#trip-day-list').find('.day-flag');
+     var depDay = moment($('#trip-title-dep-day').val(),'MM-DD-YYYY');
+     var dayTemp = depDay;
+     if($dayList.length > 1){
+         $.each($dayList,function(index,day) {
+             $(day).html(dayTemp.format('MM-DD-YYYY').replace(/-/g,'/'));
+             dayTemp = dayTemp.add(1,'d');
+         });
+         $dayList = $('#trip-day-list').find('.day-flag');
+         lastday = $dayList[$dayList.length - 1];
+         $('#trip-title-back-day').html($(lastday).html());
+     }
+ }
+ function buildSaveData (){
+     var trip_title = $('#trip-title-font').val();
+     var start_date = $('#trip-title-dep-day').val();
+     var end_date = $('#trip-title-back-day').html();
+     var user_id = '0001';
+     var trip_id = '0001';
+     var trip_d = {};
+     var trip_d_array = [];
+     var trip_d_i = 0;
+     var data = {
+         'user_id':user_id,
+         'trip_id':trip_id,
+         'trip_title':trip_title,
+         'start_date':start_date,
+         'end_date':end_date,
+         'trip_detail':[]
+     };
+     var $dayList = $('#trip-day-list').children();
+     var $spotList;
+     var date,place_name,place_addr,place_info,no,start_time,end_time,img_url;
+     var dataString;
+     $.each($dayList,function(index,day){
+          date = $(day).find('.day-flag').html();
+          $spotList = $(day).find('.trip-list').children();
+          // console.log($spotList);
+          $.each($spotList,function(index, spot) {
+              // console.log(spot);
+              if(spot.innerText != ''){
+                  place_info = $(spot).find('dummy').children();
+                  place_id = $(spot).find('small').html();
+                  no = index;
+                  start_time = $(spot).find('input')[0].value;
+                  end_time = $(spot).find('input')[1].value;
+                  img_url = $(spot).find('img').attr('src');
+                  trip_d.date = date;
+                  trip_d.place_name = place_info[0].innerText;
+                  trip_d.place_addr = place_info[1].innerText;
+                  trip_d.place_id = place_id;
+                  trip_d.no = no;
+                  trip_d.start_time = start_time;
+                  trip_d.end_time = end_time;
+                  trip_d.img_url = img_url;
+                  trip_d_array[trip_d_i] = trip_d;
+                  trip_d_i += 1;
+                  trip_d = {};
+              }
+          });
+     });
+     data.trip_detail = trip_d_array;
+     dataString = JSON.stringify(data);
+     $.ajax({
+      url: "tripcontrol.php",
+      method:'post',
+      data: dataString
+     }).done(function(data) {
+         alert(data);
+     });
+ }
+ //google map direction service test
+
+ function calcRoute(start,end) {
+  // var selectedMode = document.getElementById('mode').value;
+  var request = {
+      origin: start,
+      destination: end,
+      // Note that Javascript allows us to access the constant
+      // using square brackets and a string value as its
+      // "property."
+      // travelMode: google.maps.TravelMode[selectedMode]
+      travelMode:'DRIVING'
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == 'OK') {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+ //google map direction service test
 $(document).ready(function () {
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
     $('#trip-container').on('click','.trip-list-addbtn',function (){
-        // console.log($(this).siblings().attr('id'));
         $('.overlay').fadeIn();
         $('#dialog').css({'display':'inherit'});
         google.maps.event.trigger(map, 'resize');
-        addSpotDateId = $(this).siblings().attr('id');
+        $addSpotDate = $(this).siblings();
     });
     $('.timepicker').timepicker(timepicker_option);
-    $('#results').on('click','.addSpotBtn', function (){
+    $('#side-panel').on('click','.addSpotBtn', function (){
         var name = $(this).siblings()[1].innerText;
         var addr = $(this).siblings()[2].innerText;
         var placeId = $(this).siblings()[3].innerText;
@@ -330,11 +432,6 @@ $(document).ready(function () {
         $('#dialog').css({'display':'none'});
         $('.overlay').fadeOut();
     });
-    // $('.has-clear input[type="text"]').on('input propertychange', function() {
-    //   var $this = $(this);
-    //   var visible = Boolean($this.val());
-    //   $this.siblings('.form-control-clear').toggleClass('hidden', !visible);
-    // }).trigger('propertychange');
 
     $('.form-control-clear').click(function() {
       $(this).siblings('input[type="text"]').val('')
@@ -343,6 +440,7 @@ $(document).ready(function () {
     $('.input-group').css({'width':'50%'});
     $( '#trip-title-dep-day' ).datepicker();
     $('#addDayBtn').tooltip();
+    $('#saveBtn').tooltip();
     $('#addDayBtn').on('click',function () {
         var $comp = $('#trip-day-comp');
         var $a = $comp.find('a');
@@ -356,7 +454,11 @@ $(document).ready(function () {
         var depDay = $('#trip-title-dep-day').val();
         var depDayStr = depDay.replace(/\//g,'-');
         if(depDay === ''){
-            alert('請輸入出發日期!');
+            // $.alert('請輸入出發日期!');
+            $.alert({
+                title: '注意!',
+                content: '請輸入出發日期!'
+            });
             $('#trip-title-dep-day').focus();
             return;
         }
@@ -378,5 +480,48 @@ $(document).ready(function () {
         }
         $('#trip-day-list').append($comp.html());
         $('#trip-title-back-day').html(nextDayStr.replace(/-/g,'/'));
+    });
+    $('#saveBtn').on('click', function () {
+        $.confirm({
+            title: '確認',
+            content: '是否儲存行程?',
+            buttons: {
+                confirm: function () {
+                    buildSaveData();
+                },
+                cancel: function () {
+                    return;
+                }
+            }
+        });
+    });
+
+    $('#trip-title-dep-day').on('change',function(){
+        re_arrange_date();
+    });
+
+    $('#trip-container').on('click','.drive-dir-btn', function () {
+        var des = $(this).parent().find('.trip-list-title-name').html();
+        $('.overlay').fadeIn();
+        $('#dialog').css({'display':'inherit'});
+        clearMap();
+        directionsDisplay.setMap(map);
+        google.maps.event.trigger(map, 'resize');
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+            calcRoute(pos,des);
+
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
     });
 });
