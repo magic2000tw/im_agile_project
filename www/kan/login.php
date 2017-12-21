@@ -55,7 +55,7 @@ $_SESSION['sID'] = 0;
             <div class="card mt-4 mb-4" style="margin:0 auto;">
                 <div class="card-header" style="background-color:#ebebeb">登入</div>
                 <div class="card-body">
-                    <form method="post" action="https://localhost/pro/loginControl.php">
+                    <form method="post" action="loginControl.php">
                         <input type="hidden" name="act" value="login">
                         <div class="form-group">
                             <label>用戶名/電郵</label>
