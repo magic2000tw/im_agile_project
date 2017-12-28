@@ -48,7 +48,7 @@ $rss=mysqli_fetch_array($results);
                       $results=getUsername($_SESSION['userid']);
                       $rs=mysqli_fetch_array($results);
                       echo '
-                      <img src="',$rs['profile_location'],'" width="100%" style="display: block;margin:0 auto;">';
+                      <img src="',$rs['profile_location'],'" width="70%" style="display: block;margin:0 auto;">';
                       ?>
                   </div>
               
@@ -67,6 +67,12 @@ $rss=mysqli_fetch_array($results);
             </div>
             <div class="card mt-1">
                 <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
+              </div>
+              <div class="card mt-1">
+                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
+              </div>
+              <div class="card mt-1">
+                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
               </div>
                 <div class="card mt-1">
                 <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>

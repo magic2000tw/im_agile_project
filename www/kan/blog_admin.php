@@ -1,5 +1,14 @@
 <?php include("dbconnect.php");?>
+<?php
+if(!isset($_SESSION)){
+    session_start();
+}
+require_once("model.php");
+$userid=$_SESSION['userid'];
+$results=getUsername($userid);
+$rss=mysqli_fetch_array($results);
 
+?>
 <?php
 $query_blog = "SELECT * FROM blog ORDER BY Id ASC";
 $blog = mysqli_query($conn, $query_blog) or die(mysqli_error());
@@ -38,16 +47,18 @@ $totalRows_cn_blog = mysqli_num_rows($blog);
               <div class="row">
                   <div class="col-md-12">
                       <div class="card mt-4" style="background-color:#5b88fc">
-                          
-                              <div class="card-body">
-                                  
-                                  <img src="img/user1.png" width="80%" style="display: block;margin:0 auto;">
-                              </div>
-                          
-                          
-                              <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
-                                  <small style="color:white;">賬戶名</small>
-                              </div>
+                          <div class="card-body">
+                              <?php
+                              require_once("model.php");
+                              $results=getUsername($_SESSION['userid']);
+                              $rs=mysqli_fetch_array($results);
+                              echo '
+                              <img src="',$rs['profile_location'],'" width="70%" style="display: block;margin:0 auto;">';
+                              ?>
+                          </div>
+                          <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
+                              <small style="color:white;"><?php echo $rss['userName'];?></small>
+                          </div>
                           
                       </div>
                   </div>
@@ -55,10 +66,10 @@ $totalRows_cn_blog = mysqli_num_rows($blog);
           </div>
           <div class="container mt-4">
             <div class="card mt-4">
-              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.html">我的行程</a>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.php">我的行程</a>
             </div>
             <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.html">收藏景點</a>
+                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
               </div>
               <div class="card mt-1">
                 <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
@@ -67,7 +78,7 @@ $totalRows_cn_blog = mysqli_num_rows($blog);
                 <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
               </div>
                 <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.html">登出</a>
+                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>
               </div>
           </div>
         </div>
