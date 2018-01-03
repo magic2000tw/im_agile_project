@@ -42,7 +42,6 @@ $rss=mysqli_fetch_array($results);
             <div class="row">
               <div class="col-md-12">
                 <div class="card mt-4" style="background-color:#5b88fc">
-              
                   <div class="card-img-top" style="overflow:hidden">
                     <?php
                     require_once("model.php");
@@ -91,8 +90,8 @@ $rss=mysqli_fetch_array($results);
                 <div class="navbar-header">
                 
                     <div>
-                        <a><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
-                        <a><img class="img-responsive"src="name3.png" height="50px" align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="name3.png" height="50px" align="center"></a>
                     </div>
                 </div>
                 <div class="input-group col-lg-4">
@@ -117,7 +116,8 @@ $rss=mysqli_fetch_array($results);
                         $results=getmyTrip($userName);
                         while($rs=mysqli_fetch_array($results)){
                             echo "<div class='card mb-4'>
-                                <img class='card-img-top ' style='height:250px;overflow:hidden' src='",$rs['cover_location'],"'>
+                                <div class='card-img-top ' style='height:250px;overflow:hidden'>
+                                 <img src='",$rs['cover_location'],"' width='100%'> </div>
                                 <div class='card-body'>
                                     <h4 class='card-title'>",$rs['name'],"</h4>
                                     <p class='card-text'>",$rs['about'],"</p>

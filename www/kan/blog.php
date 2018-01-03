@@ -106,25 +106,19 @@ if(isset($_GET['start'],$_GET['end'])){
               <div class="row">
                   <div class="col-md-12">
                       <div class="card mt-4" style="background-color:#5b88fc">
-                          
-                          
-                          <div class="card-body">
-                              <?php
-                              require_once("model.php");
-                              $results=getUsername($_SESSION['userid']);
-                              $rs=mysqli_fetch_array($results);
-                              echo '
-                              <img src="',$rs['profile_location'],'" width="70%" style="display: block;margin:0 auto;">';
-                              ?>
-                          </div>
-          
-          
-                          <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
-                              <small style="color:white;"><?php echo $rss['userName'];?></small>
-                          </div>
-                          
-                      
-                          
+                          <div class="card-img-top" style="overflow:hidden">
+                    <?php
+                    require_once("model.php");
+                    $results=getUsername($_SESSION['userid']);
+                    $rs=mysqli_fetch_array($results);
+                    echo '
+                    <img src="',$rs['profile_location'],'" width="100%" >';
+                    ?>
+                  </div>
+                  <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
+                      <small style="color:white;font-size:30px"><?php echo $rss['userName'];?></small>
+                  </div>
+              
                       </div>
                   </div>
               </div>
@@ -157,8 +151,8 @@ if(isset($_GET['start'],$_GET['end'])){
                 <div class="navbar-header">
                 
                     <div>
-                        <a><img class="img-responsive"src="img/logo.png" height="80px"align="center"></a>
-                        <a><img class="img-responsive"src="img/name3.png" height="50px" align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="img/logo.png" height="80px"align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="img/name3.png" height="50px" align="center"></a>
                     </div>
                 </div>
                 <div class="input-group col-lg-4">
@@ -174,8 +168,10 @@ if(isset($_GET['start'],$_GET['end'])){
         <div id="bodydiv" alt="內容">   
             <!-- ========== Blog Posts ========== -->
           <div class="container col-md-8" style="background-color:white">
+            <a class="page-header " style="font-size:50px;font-weight:bold;color:#5b88fc" >遊記專區</a>
+              
             <div class="col-md-8 mt-2" >
-
+              
               <?php while($row=mysqli_fetch_array($sql)){?>
               <!-- Blog Post 1 -->
               <div class="col-md-12">

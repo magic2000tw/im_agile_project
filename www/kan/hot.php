@@ -97,8 +97,8 @@ $rss=mysqli_fetch_array($results);
                 <div class="navbar-header">
                 <!-- Logo -->
                     <div>
-                        <a href="home.html"><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
-                        <a href="home.html"><img class="img-responsive"src="name3.png" height="70px" align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="name3.png" height="50px" align="center"></a>
                     </div>
                 </div><!-- / .navbar-header -->
                 <div class="input-group col-lg-4">
@@ -114,10 +114,12 @@ $rss=mysqli_fetch_array($results);
             <div class="row mt-2">
                 <div class="col-md-4">
                     <div class="card mb-2" >
-                        <img class="card-img-top" src="http://placehold.it/200x200">
+                        <div class="card-img-top" style="height:300px;overflow:hidden"> 
+                          <img src="http://placehold.it/100x100" width="100%"/>
+                        </div>
                         <div class="card-body" >
                           <h4>景點名稱</h4>
-                          <p>收藏次數：</p>
+                          <small>瀏覽次數：</small>
                           <a href="#" class="btn btn-primary btn-sm">查看</a>
                           <a href="#" class="btn btn-success btn-sm">收藏</a>
                         </div>

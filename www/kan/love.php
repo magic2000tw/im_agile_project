@@ -94,8 +94,8 @@ $rss=mysqli_fetch_array($results);
                 <div class="navbar-header">
                 <!-- Logo -->
                     <div>
-                        <a href="home.html"><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
-                        <a href="home.html"><img class="img-responsive"src="name3.png" height="70px" align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="name3.png" height="50px" align="center"></a>
                     </div>
                 </div><!-- / .navbar-header -->
                 <div class="input-group col-lg-4">
