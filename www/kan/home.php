@@ -14,6 +14,7 @@ $rss=mysqli_fetch_array($results);
 
 <head>
 
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -42,19 +43,17 @@ $rss=mysqli_fetch_array($results);
               <div class="col-md-12">
                 <div class="card mt-4" style="background-color:#5b88fc">
               
-                  <div class="card-body">
-                      <?php
-                      require_once("model.php");
-                      $results=getUsername($_SESSION['userid']);
-                      $rs=mysqli_fetch_array($results);
-                      echo '
-                      <img src="',$rs['profile_location'],'" width="70%" style="display: block;margin:0 auto;">';
-                      ?>
+                  <div class="card-img-top" style="overflow:hidden">
+                    <?php
+                    require_once("model.php");
+                    $results=getUsername($_SESSION['userid']);
+                    $rs=mysqli_fetch_array($results);
+                    echo '
+                    <img src="',$rs['profile_location'],'" width="100%" >';
+                    ?>
                   </div>
-              
-              
                   <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
-                      <small style="color:white;"><?php echo $rss['userName'];?></small>
+                      <small style="color:white;font-size:30px"><?php echo $rss['userName'];?></small>
                   </div>
               
                 </div>
@@ -66,17 +65,20 @@ $rss=mysqli_fetch_array($results);
               <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.php">我的行程</a>
             </div>
             <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
-              </div>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
+            </div>
+            <div class="card mt-1">
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="hot.php">人氣景點</a>
+            </div>
+            <div class="card mt-1">
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
+            </div>
+            <div class="card mt-1">
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
+            </div>
               <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
-              </div>
-              <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
-              </div>
-                <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>
-              </div>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>
+            </div>
           </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -102,8 +104,9 @@ $rss=mysqli_fetch_array($results);
             </div>
         </nav>
         <div class="container col-md-8" style="background-color:white">
-            <h2 class="page-header col-md-4 mt-2" style="font-weight:bold;color:#5b88fc" >我的行程</h2><button type="button" class="btn btn-sm btn-success mt-2" align="right
-            " style="font-weight:bold;color:white" >新增</button>
+              <a class="page-header " style="font-size:50px;font-weight:bold;color:#5b88fc" >我的行程</a>
+              <button type="button" class="btn btn-sm btn-success" align="right
+              " style="font-weight:bold;color:white" >新增</button>
             
             <div class="row mt-2">
                 <div class="col-md-8" >
