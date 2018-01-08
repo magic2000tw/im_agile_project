@@ -67,20 +67,23 @@ $totalRows_cn_blog = mysqli_num_rows($blog);
           </div>
           <div class="container mt-4">
             <div class="card mt-4">
-              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.php">我的行程</a>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="myTrip.php">我的行程</a>
             </div>
             <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
-              </div>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
+            </div>
+            <div class="card mt-1">
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="hot.php">人氣景點</a>
+            </div>
+            <div class="card mt-1">
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
+            </div>
+            <div class="card mt-1">
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
+            </div>
               <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
-              </div>
-              <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
-              </div>
-                <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>
-              </div>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>
+            </div>
           </div>
         </div>
         <!-- /#sidebar-wrapper -->

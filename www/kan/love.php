@@ -63,9 +63,9 @@ $rss=mysqli_fetch_array($results);
                   </div>
               </div>
           </div>
-          <div class="container mt-4" style="font-size:20px">
+          <div class="container mt-4">
             <div class="card mt-4">
-              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.php">我的行程</a>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="myTrip.php">我的行程</a>
             </div>
             <div class="card mt-1">
               <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
