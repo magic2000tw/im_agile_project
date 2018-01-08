@@ -173,14 +173,14 @@ if(isset($_GET['start'],$_GET['end'])){
           <div class="container col-md-8" style="background-color:white">
             <a class="page-header " style="font-size:50px;font-weight:bold;color:#5b88fc" >遊記專區</a>
               
-            <div class="col-md-8 mt-2" >
+            <div class="col-md-11 mt-2" >
               
               <?php while($row=mysqli_fetch_array($sql)){?>
               <!-- Blog Post 1 -->
               <div class="col-md-12">
                 <div class="blog_post" data-wow-delay=".1s" data-wow-duration="2s">
                 <!-- Image -->
-                <a href="blog_post.php?Id=<?php echo $row['Id'];?>" class="post-img"><img src="img/<?php echo $row['Pic'];?>.jpg" alt="image"></a>
+                <a href="blog_post.php?Id=<?php echo $row['Id'];?>" class="post-img"><img src="img/<?php echo $row['Pic'];?>.jpg"  style="width:100%" alt="image"></a>
                 <div class="bp-content">              
                   <!-- Meta data -->
                       <span><?php echo $row['Date'];?></span>
