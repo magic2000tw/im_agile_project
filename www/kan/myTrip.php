@@ -104,8 +104,26 @@ $rss=mysqli_fetch_array($results);
         </nav>
         <div class="container col-md-8" style="background-color:white">
               <a class="page-header " style="font-size:50px;font-weight:bold;color:#5b88fc" >我的行程</a>
-              <button type="button" class="btn btn-sm btn-success" align="right
-              " style="font-weight:bold;color:white" >新增</button>
+              <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal" align="right" style="font-weight:bold;color:white" >新增</button>
+            
+            <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog vertical-align-center" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+            <p>行程名稱：<input type="text" style="font-size:12px" name="tripName"></p>
+            <p>開始日期：<input type="text" style="font-size:12px" name="startdate" id="datepicker1"></p>
+            <p>結束日期：<input type="text" style="font-size:12px" name="enddate" id="datepicker2"></p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">確認</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+            </div>
+
+  </div>
+</div>
             
             <div class="row mt-2">
                 <div class="col-md-8" >
