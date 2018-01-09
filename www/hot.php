@@ -20,7 +20,7 @@ $rss=mysqli_fetch_array($results);
     <meta name="author" content="">
 
     <title>人氣景點</title>
-    
+
     <!-- basic bootstrap setting -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- sidebar setting -->
@@ -32,7 +32,7 @@ $rss=mysqli_fetch_array($results);
         body{
             font-family: 'Pangolin', cursive;
         }
-        
+
     </style>
 </head>
 
@@ -46,7 +46,7 @@ $rss=mysqli_fetch_array($results);
               <div class="row">
                   <div class="col-md-12">
                       <div class="card mt-4" style="background-color:#5b88fc">
-                          
+
                           <div class="card-img-top" style="overflow:hidden">
                               <?php
                               require_once("model.php");
@@ -56,12 +56,12 @@ $rss=mysqli_fetch_array($results);
                               <img src="',$rs['profile_location'],'" width="100%" >';
                               ?>
                           </div>
-          
-          
+
+
                           <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
                               <small style="color:white;font-size:30px"><?php echo $rss['userName'];?></small>
                           </div>
-                          
+
                       </div>
                   </div>
               </div>
@@ -114,7 +114,7 @@ $rss=mysqli_fetch_array($results);
             <div class="row mt-2">
                 <div class="col-md-4">
                     <div class="card mb-2" >
-                        <div class="card-img-top" style="height:300px;overflow:hidden"> 
+                        <div class="card-img-top" style="height:300px;overflow:hidden">
                           <img src="http://placehold.it/100x100" width="100%"/>
                         </div>
                         <div class="card-body" >
@@ -126,7 +126,7 @@ $rss=mysqli_fetch_array($results);
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>

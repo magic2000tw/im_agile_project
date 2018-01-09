@@ -28,7 +28,7 @@
 
     <div id="wrapper">
 
-        
+
         <!-- Page Content -->
         <nav class="navbar navbar-light " style="background-color:#5b88fc">
             <div class="container">
@@ -38,31 +38,31 @@
                         <a><img class="img-responsive"src="logo.png" width="15%" align="center"></a>
                         <a><img class="img-responsive"src="name3.png" width="50%" align="center"></a>
                     </div>
-                
+
                 </div><!-- / .navbar-header -->
-                
+
             </div>
         </nav>
         <div class="container col-md-6">
             <div class="card mt-3 mb-4" style="margin:0 auto;">
                 <div class="card-header">註冊</div>
                 <div class="card-body">
-        <form>
+        <form action="signUpControl.php" method="post">
             <div class="row">
                 <div class="container">
                     <div class="form-group">
                         <label>用戶名</label>
-                        <input type="text" class="form-control" placeholder="輸入用戶名">
+                        <input type="text" name="userName" class="form-control" placeholder="輸入用戶名">
                     </div>
                     <div class="form-group">
                         <label>電子郵件</label>
-                        <input type="email" class="form-control" placeholder="輸入電子郵件">
+                        <input type="email" name="loginMail" class="form-control" placeholder="輸入電子郵件">
                     </div>
                     <div class="form-group">
                         <label>設立帳密</label>
-                        <input type="password" class="form-control" placeholder="輸入帳密">
+                        <input type="password" name="password" class="form-control" placeholder="輸入帳密">
                     </div>
-                    <button type="submit" class="btn btn-sm" onclick="window.location='login.php'">立即註冊</button>
+                    <button type="submit" class="btn btn-sm" >立即註冊</button>
                     <button type="button" class="btn btn-sm" onclick="window.location='login.php'">返回</button>
                 </div>
             </div>
