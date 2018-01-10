@@ -66,7 +66,7 @@ $_SESSION['sID'] = 0;
                             <input type="password" class="form-control" name="password" placeholder="輸入密碼">
                         </div>
                         <button type="submit" class="btn col-md-2" >登入</button>
-                        <button type="button" class="btn col-md-2" onclick="window.location='signup.html'">註冊</button>
+                        <button type="button" class="btn col-md-2" onclick="window.location='signup.php'">註冊</button>
                     </form>
                 </div>
             </div>

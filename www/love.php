@@ -1,3 +1,14 @@
+<?php
+if(!isset($_SESSION)){
+    session_start();
+}
+require_once("model.php");
+$userid=$_SESSION['userid'];
+$results=getUsername($userid);
+$rss=mysqli_fetch_array($results);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,48 +32,14 @@
         body{
             font-family: 'Pangolin', cursive;
         }
+        
     </style>
 </head>
 
 <body style="background-color:#ebebeb">
 
     <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" style="background-color:white">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="card mt-4" style="background-color:#5b88fc">
-                          
-                              <div class="card-body">
-                                  
-                                  <img src="user1.png" width="80%" style="display: block;margin:0 auto;">
-                              </div>
-                          
-                          
-                              <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
-                                  <small style="color:white;">賬戶名</small>
-                              </div>
-                          
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="container mt-4">
-            <div class="card mt-4">
-              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.php">我的行程</a>
-            </div>
-            <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc" href="love.php">收藏景點</a>
-              </div>
-                <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc" href="login.php">登出</a>
-              </div>
-          </div>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
+        <?php include 'header.php';?>
         <!-- Page Content -->
         <nav class="navbar navbar-light " style="background-color:#5b88fc">
             <a href="#menu-toggle" class="btn btn-sm btn-secondary" id="menu-toggle"><img src="menu.png" height="20px"></a>
@@ -71,8 +48,8 @@
                 <div class="navbar-header">
                 <!-- Logo -->
                     <div>
-                        <a href="home.html"><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
-                        <a href="home.html"><img class="img-responsive"src="name3.png" height="70px" align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
+                        <a href="hot.php"><img class="img-responsive"src="name3.png" height="50px" align="center"></a>
                     </div>
                 </div><!-- / .navbar-header -->
                 <div class="input-group col-lg-4">
@@ -84,12 +61,12 @@
             </div>
         </nav>
         <div class="container" style="background-color:white">
-            <h2 class="btn btn-sm mt-2" style="background-color:gray;font-weight:bold;color:white" >收藏景點</h2>
+            <a class="page-header col-md-4 mt-2" style="font-size:50px;font-weight:bold;color:#5b88fc" >收藏景點</a>
             <div class="row mt-2">
                 <div class="col-md-3">
                     <div class="card mb-2" >
                         <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button" onclick="window.location='login.html'">
+                        <div class="card-footer text-muted" type="button" >
                             景色名稱
                         </div>
                     </div>

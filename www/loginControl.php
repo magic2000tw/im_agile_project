@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('loginModel.php');
 $action =$_REQUEST['act'];
 
@@ -10,12 +11,12 @@ case 'login':
 	if ($id = checkUP($loginMail,$passWord) ) {
 		$_SESSION['userid'] = $id;
 		//$_SESSION['username']=$row['userName'];
-		header('Location: https://localhost/agile_git/im_agile_project/www/kan/home.html');
-//		echo "Login OK <br />";
-//		echo '<a href="test_view_trip.php">VIEW</a> ';
+		header('Location:hot.php');
+		// echo "Login OK <br />";
+		// echo '<a href="home.html">VIEW</a> ';
 	} else {
 		echo "Invalid Username or Password - Please try again <br />";
-		echo '<a href="test_login.php">Login again</a> ';
+		echo '<a href="login.php">Login again</a> ';
 	}
 	break;
 }
