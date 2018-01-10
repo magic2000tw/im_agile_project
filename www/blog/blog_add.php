@@ -99,7 +99,7 @@
             <textarea name="Content" cols="83" rows="15" id="Content"></textarea><br>
             <label for="Pic">圖片:</label>
             <input name="Pic" type="text" id="Pic" value="">
-            <a href="add.php"><input type="submit" value="新增" type="submit" onclick="form1.action='add.php';form1.submit();"></a>
+            <input type="submit" value="新增" type="submit" onclick="form1.action='add.php';form1.submit();">
         </form>
     </div>
   </div>

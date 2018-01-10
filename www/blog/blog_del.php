@@ -2,7 +2,7 @@
 
 <?php
  $Id = $_GET['Id'];
-  $sql = sprintf("DELETE FROM `blog` WHERE `Id` = $Id;",mysqli_real_escape_string($Id));
+  $sql = sprintf("DELETE FROM `blog` WHERE `Id` = %s;",mysqli_real_escape_string($conn,$Id));
   $result = mysqli_query($conn,$sql) or die(mysqli_error());
   $row = mysqli_fetch_array($result);
 
