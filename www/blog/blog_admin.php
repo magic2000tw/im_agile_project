@@ -1,14 +1,10 @@
-<?php include("connections/connections.php");?>
+<?php include("dbconnect.php");?>
 
 <?php
-$link = mysql_connect($host_name, $user_name, $password);
-mysql_select_db($db_name,$link); 
-$query_cn_blog = "SELECT * FROM blog ORDER BY Id ASC";
-$blog = mysql_query($query_cn_blog, $link) or die(mysql_error());
-$row_blog = mysql_fetch_assoc($blog);
-$totalRows_cn_blog = mysql_num_rows($blog);
-
-//$blog = mysql_query("SELECT * FROM `blog` ORDER BY `Id` ASC");
+$query_blog = "SELECT * FROM blog ORDER BY Id ASC";
+$blog = mysqli_query($conn, $query_blog) or die(mysqli_error());
+$row_blog = mysqli_fetch_assoc($blog);
+$totalRows_cn_blog = mysqli_num_rows($blog);
 ?>
 <html class="no-js" lang="en">
 <head>
@@ -124,9 +120,10 @@ $totalRows_cn_blog = mysql_num_rows($blog);
                                   <td><?php echo $row_blog['Title']; ?></td>
                                   <td><?php echo $row_blog['Member_id']; ?></td>
                                   <td><a href="blog_edit.php?Id=<?php echo $row_blog['Id']; ?>">Edit</a></td>
-                                  <td><a href="blog_del.php?Id=<?php echo $row_blog['Id']; ?>">Delete</a></td>
+                                  <td><a href="blog_del.php?Id=<?php echo $row_blog['Id']; ?>">刪除</a>
+</td>
                                   </tr>
-                                <?php } while ($row_blog = mysql_fetch_assoc($blog)); ?>
+                                <?php } while ($row_blog = mysqli_fetch_assoc($blog)); ?>
                               </tbody>
                             </table>
                       </div>

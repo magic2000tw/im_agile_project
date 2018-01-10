@@ -27,9 +27,42 @@ $rss=mysqli_fetch_array($results);
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+    
+    
+    <!-- jQuery js -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
+            
+    
     <style>
         body{
             font-family: 'Pangolin', cursive;
+        }
+        .modal {
+        }
+        .vertical-alignment-helper {
+            display:table;
+            height: 100%;
+            width: 100%;
+            }
+        .vertical-align-center {
+            /* To center vertically */
+            display: table-cell;
+            height: 250px;
+            width: 300px;
+            vertical-align: middle;
+            }
+        .modal-content {
+            /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+            width:inherit;
+            height:inherit;
+            /* To center horizontally */
+            margin: 0 auto;
+        }
+        .font-vertical {
+            width:"300";
+            height:"300";
         }
     </style>
 </head>
@@ -61,7 +94,7 @@ $rss=mysqli_fetch_array($results);
           </div>
           <div class="container mt-4">
             <div class="card mt-4">
-              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="myTrip.php">我的行程</a>
+              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.php">我的行程</a>
             </div>
             <div class="card mt-1">
               <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
@@ -106,24 +139,32 @@ $rss=mysqli_fetch_array($results);
               <a class="page-header " style="font-size:50px;font-weight:bold;color:#5b88fc" >我的行程</a>
               <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal" align="right" style="font-weight:bold;color:white" >新增</button>
             
-            <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog vertical-align-center" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
+            
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog vertical-align-center">
+                    <div class="modal-content" >
+                        <div class="modal-header" style="color:white;background-color:#5b88fc">
+                        </div>
+                        <div class="modal-body">
+                        <p>行程名稱：<input type="text" class="font-vertical" style="font-size:12px" name="tripName"></p>
+                        <p>開始日期：<input type="text" id="datepicker1" align='center' valign="middle" style="font-size:12px" name="startdate"></p>
+                        <script>
+                            $("#datepicker1").datepicker();
+                        </script>
+                        <p>結束日期：<input type="text" id="datepicker2" style="font-size:12px" name="enddate" id="datepicker2"></p>
+                        <script>
+                            $("#datepicker2").datepicker();
+                        </script>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button"  class="btn btn-primary">確認</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-            <p>行程名稱：<input type="text" style="font-size:12px" name="tripName"></p>
-            <p>開始日期：<input type="text" style="font-size:12px" name="startdate" id="datepicker1"></p>
-            <p>結束日期：<input type="text" style="font-size:12px" name="enddate" id="datepicker2"></p>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">確認</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            </div>
-            </div>
-
-  </div>
-</div>
+        </div>
             
             <div class="row mt-2">
                 <div class="col-md-8" >
@@ -170,7 +211,7 @@ $rss=mysqli_fetch_array($results);
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-
+    
 </body>
 
 </html>
