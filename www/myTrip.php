@@ -99,7 +99,8 @@ $rss=mysqli_fetch_array($results);
             <div class="vertical-alignment-helper">
                 <div class="modal-dialog vertical-align-center">
                     <div class="modal-content" >
-                        <div class="modal-header" style="color:white;background-color:#5b88fc">
+                        <div class="modal-header" style="color:white;background-color:#5b88fc;">
+                            <b>新增行程</b>
                         </div>
                         <div class="modal-body">
                         <p>行程名稱：<input type="text" class="font-vertical" style="font-size:12px" name="tripName"></p>
@@ -113,8 +114,8 @@ $rss=mysqli_fetch_array($results);
                         </script>
                         </div>
                         <div class="modal-footer">
-                            <button type="button"  class="btn btn-primary">確認</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button"  class="btn btn-primary btn-sm">確認</button>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
                         </div>
                     </div>
                 </div>
