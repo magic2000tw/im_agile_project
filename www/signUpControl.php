@@ -4,7 +4,7 @@ global $conn;
 $userName=$_POST['userName'];
 $loginMail=$_POST['loginMail'];
 $password=$_POST['password'];
-$sql="select count(*) as A from user where userName='$userName'";
+$sql="select count(*) as A from user where userName='$userName' or loginMail='$loginMail'";
 $results=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($results);
 if($row['A'] >= 1) {
