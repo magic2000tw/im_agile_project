@@ -40,90 +40,104 @@ $row = mysqli_fetch_assoc($sql);
     </style>
 </head>
 <body style="background-color:#ebebeb">
-<div id="wrapper">
-        <div id="sidebar-wrapper" style="background-color:white">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="card mt-4" style="background-color:#5b88fc">
-                          
-                              <div class="card-body">
-                                  
-                                  <img src="img/user1.png" width="80%" style="display: block;margin:0 auto;">
-                              </div>
+  <div id="wrapper">
+    <div id="sidebar-wrapper" style="background-color:white">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card mt-4" style="background-color:#5b88fc">
                       
-                              <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
-                                  <small style="color:white;">賬戶名</small>
-                              </div>      
-                      </div>
+                          <div class="card-body">
+                              
+                              <img src="img/user1.png" width="80%" style="display: block;margin:0 auto;">
+                          </div>
+                  
+                          <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
+                              <small style="color:white;">賬戶名</small>
+                          </div>      
                   </div>
               </div>
           </div>
-          <div class="container mt-4">
-            <div class="card mt-4">
-              <a class="btn text-left" style="color:white;background-color:#5b88fc"href="home.html">我的行程</a>
+      </div>
+      <div class="container mt-4">
+        <div class="card mt-4">
+          <a class="btn text-left" style="color:white;background-color:#5b88fc"href="myTrip.php">我的行程</a>
+        </div>
+        <div class="card mt-1">
+          <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.php">收藏景點</a>
+        </div>
+        <div class="card mt-1">
+          <a class="btn text-left" style="color:white;background-color:#5b88fc"href="hot.php">人氣景點</a>
+        </div>
+        <div class="card mt-1">
+          <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
+        </div>
+        <div class="card mt-1">
+          <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
+        </div>
+          <div class="card mt-1">
+          <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.php">登出</a>
+        </div>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <nav class="navbar navbar-light " style="background-color:#5b88fc">
+        <a href="#menu-toggle" class="btn btn-sm btn-secondary" id="menu-toggle"><img src="img/menu.png" vertical-align="center" height="20px"></a>
+        <div class="container" >
+
+            <div class="navbar-header">
+            
+                <div>
+                    <a><img class="img-responsive"src="img/logo.png" height="80px"align="center"></a>
+                    <a><img class="img-responsive"src="img/name3.png" height="50px" align="center"></a>
+                </div>
             </div>
-            <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="love.html">收藏景點</a>
-              </div>
-              <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog.php">遊記專區</a>
-              </div>
-              <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="blog_admin.php">遊記後台管理</a>
-              </div>
-                <div class="card mt-1">
-                <a class="btn text-left" style="color:white;background-color:#5b88fc"href="login.html">登出</a>
-              </div>
+            <div class="input-group col-lg-4">
+                <input type="search" class="form-control" placeholder="搜尋">
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button"><img src="img/search.png" height="30px"></button>
+                </span>
+            </div>
+        </div>
+    </nav>
+    <div id="bodydiv" alt="內容">
+      <div class="container col-md-8" style="background-color:white">
+        <div id="blog" class="section blog-classic">
+          <div class="row">
+            <div class="container mt-3 ml-2">
+              <a href="../kan/blog.php" class="btn btn-small">返回</a>
+              <a href="#" class="btn btn-small ml-2">追蹤</a>
+              <a href="#" class="btn btn-small ml-2">加入我的行程</a>
+            </div>
+              
+            <div class="col-md-12 mb-sm-160">
+              
+              <!-- Blog Post -->
+              <div class="col-md-12 blog-post" data-wow-delay=".1s" data-wow-duration="2s">
+
+                <!-- Image -->
+                <img class="post-img" src="img/<?php echo $row['Pic'];?>.jpg" alt="image" style="width:100%">
+
+                <!-- Meta data -->
+                <div class="post-meta">
+                    <span><?php echo $row['Date'];?></span>
+                </div><!-- / .meta -->
+                <!-- Title -->
+                <h2 class="post-title"><?php echo $row['Title'];?></h2>
+                <div class="content-post">
+                  <!-- Intro -->
+                  <?php echo $row['Content'];?>
+                </div>
+                
+              </div><!-- / .blog-post-single -->
+            </div>
           </div>
         </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <nav class="navbar navbar-light " style="background-color:#5b88fc">
-            <a href="#menu-toggle" class="btn btn-sm btn-secondary" id="menu-toggle"><img src="img/menu.png" vertical-align="center" height="20px"></a>
-            <div class="container" >
-
-                <div class="navbar-header">
-                
-                    <div>
-                        <a><img class="img-responsive"src="img/logo.png" height="80px"align="center"></a>
-                        <a><img class="img-responsive"src="img/name3.png" height="50px" align="center"></a>
-                    </div>
-                </div>
-                <div class="input-group col-lg-4">
-                    <input type="search" class="form-control" placeholder="搜尋">
-                    <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button"><img src="img/search.png" height="30px"></button>
-                    </span>
-                </div>
-            </div>
-        </nav>
-      <div id="bodydiv" alt="內容">
-        <div id="blog" class="section container blog-classic">
-          <div class="row">
-            <div class="col-md-8 mb-sm-160">
-              
-                <!-- Blog Post -->
-                <div class="col-md-12 blog-post" data-wow-delay=".1s" data-wow-duration="2s">
-
-                  <!-- Image -->
-                  <img class="post-img" src="img/<?php echo $row['Pic'];?>.jpg" alt="image">
-
-                  <!-- Meta data -->
-                  <div class="post-meta">
-                      <span><?php echo $row['Date'];?></span>
-                  </div><!-- / .meta -->
-                  <!-- Title -->
-                  <h2 class="post-title"><?php echo $row['Title'];?></h2>
-                  <div class="content-post">
-                    <!-- Intro -->
-                    <?php echo $row['Content'];?>
-                  </div>
-                  
-                </div><!-- / .blog-post-single -->
-            </div>
+      </div>
     </div>
+  </div>
 </div>
 <footer class="py-5 bg-dark">
     <div>

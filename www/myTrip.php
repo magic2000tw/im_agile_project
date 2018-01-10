@@ -167,7 +167,7 @@ $rss=mysqli_fetch_array($results);
         </div>
             
             <div class="row mt-2">
-                <div class="col-md-8" >
+                <div class="col-md-12" >
                     <?php
                         require_once("model.php");
                         $userName=$rss['userName'];
