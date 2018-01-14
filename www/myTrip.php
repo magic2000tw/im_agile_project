@@ -39,6 +39,10 @@ $rss=mysqli_fetch_array($results);
         body{
             font-family: 'Pangolin', cursive;
         }
+        .remarks_w{
+            float: right;
+            width: 25%;
+        }
         .modal {
         }
         .vertical-alignment-helper {
@@ -49,8 +53,8 @@ $rss=mysqli_fetch_array($results);
         .vertical-align-center {
             /* To center vertically */
             display: table-cell;
-            height: 250px;
-            width: 300px;
+            height: 400px;
+            width: 350px;
             vertical-align: middle;
             }
         .modal-content {
@@ -99,19 +103,17 @@ $rss=mysqli_fetch_array($results);
             <div class="vertical-alignment-helper">
                 <div class="modal-dialog vertical-align-center">
                     <div class="modal-content" >
-                        <div class="modal-header" style="color:white;background-color:#5b88fc;">
+                        <div class="modal-header" style="color:white;background-color:#5b88fc;" >
                             <b>新增行程</b>
                         </div>
                         <div class="modal-body">
-                        <p>行程名稱：<input type="text" class="font-vertical" style="font-size:12px" name="tripName"></p>
-                        <p>開始日期：<input type="text" id="datepicker1" align='center' valign="middle" style="font-size:12px" name="startdate"></p>
+                        <p>行程名稱：<input type="text" class="font-vertical" style="font-size:12px,width:250px,height:2px" name="tripName"></p>
+                        <p>開始日期：<input type="text" id="datepicker1" align='center' valign="middle" style="font-size:12px,width:250px,height:2px" name="startdate"></p>
                         <script>
                             $("#datepicker1").datepicker();
                         </script>
-                        <p>結束日期：<input type="text" id="datepicker2" style="font-size:12px" name="enddate" id="datepicker2"></p>
-                        <script>
-                            $("#datepicker2").datepicker();
-                        </script>
+                        <p>備註：<textarea  id="remarks_w"  style="width:250px;height:100px;" ></textarea>
+                        
                         </div>
                         <div class="modal-footer">
                             <button type="button"  class="btn btn-primary btn-sm">確認</button>
