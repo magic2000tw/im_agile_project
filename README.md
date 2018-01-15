@@ -65,7 +65,26 @@ Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework 
 
 Copyright 2013-2017 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/gh-pages/LICENSE) license.
 
-### Google API
+### Google Map API
 
-API 是 Application Programming Interface 的縮寫，亦即 應用程式介面。眾所皆知Google提供了相當豐富的服務，像是Google Map、Youtube、Google文件等，但這些服務通常需要連去Google 網站才能使用
+您可以根據「Google 地圖」的資料，將地圖新增至您的應用程式。 API 會自動處理對「Google 地圖」伺服器的存取、資料下載、地圖顯示，以及回應地圖手勢。
+您也可以使用 API 呼叫，將標記、多邊形及疊加層新增至基本地圖，以及變更使用者觀看的特定地圖區域。 這些物件為地圖位置提供其他資訊，並允許使用者與地圖進行互動。
+API 可讓您將以下圖形新增至地圖：
+
+在地圖上錨定於特定位置的圖示（標記）。
+● 多組線段（折線）。
+● 閉合線段（多邊形）。
+●  在地圖上錨定於特定位置的點陣圖圖形（地面疊加層）。
+● 多組顯示在基本地圖方塊上方的影像（地圖方塊疊加層）。
+
+#### 目標對象
+
+適用於熟悉 Android 開發與物件導向程式設計概念的人員。 您應該也要熟悉使用者觀點下的 Google 地圖。
+此概念文件是專門設計來協助您使用 Google Maps Android API 快速開始探索及開發應用程式。 如需類別與方法的特定詳細資料，您也可以參閱參考文件。
+
+#### 資料引用標示需求
+
+如果您在應用程式中使用 Google Maps Android API，便必須包括 Google Play 服務資料引用標示文字做為應用程式內「法律聲明」區段的一部分。
+我們建議將法律聲明以獨立選單項目，或是以「關於」選單項目之一部分的形式呈現。
+透過呼叫``` GoogleApiAvailability.getOpenSourceSoftwareLicenseInfo``` 可以取得資料引用標示文字。
 ![image](https://ppt.cc/fa9iMx@.png)
