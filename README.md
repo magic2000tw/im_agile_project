@@ -66,4 +66,6 @@ Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework 
 Copyright 2013-2017 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/gh-pages/LICENSE) license.
 
 ### Google API
+
+API 是 Application Programming Interface 的縮寫，亦即 應用程式介面。眾所皆知Google提供了相當豐富的服務，像是Google Map、Youtube、Google文件等，但這些服務通常需要連去Google 網站才能使用
 ![image](https://ppt.cc/fa9iMx@.png)
