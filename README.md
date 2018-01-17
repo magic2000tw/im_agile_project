@@ -5,9 +5,9 @@
 # 使用導覽
 
 進入旅遊規劃網首頁後，可以看到人氣景點
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01-2.png?raw=true)
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/05.png?raw=true)
 
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01.png?raw=true)
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01-2.png?raw=true)
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/02.png?raw=true)
 
