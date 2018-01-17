@@ -2,16 +2,20 @@
 
 生活在充滿各種壓力的都市中，你是否也想來一趟放鬆的輕旅行呢?由HTML、Bootstrap結合Google API所開發的旅遊規劃網，可以瀏覽人氣行程、景點以及各種美食小吃，讓你依照喜好隨時規劃旅行各個行程景點。
 
-# 介面導覽
+# 使用導覽
 
 進入旅遊規劃網首頁後，可以看到人氣景點
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/00.png?raw=true)
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01-2.png?raw=true)
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01.png?raw=true)
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/02.png?raw=true)
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/03.png?raw=true)
+
+# 使用手冊
+
+
 # 使用套件
 ## [Start Bootstrap - Simple Sidebar](https://startbootstrap.com/template-overviews/simple-sidebar/)
 
