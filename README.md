@@ -2,16 +2,27 @@
 
 生活在充滿各種壓力的都市中，你是否也想來一趟放鬆的輕旅行呢?由HTML、Bootstrap結合Google API所開發的旅遊規劃網，可以瀏覽人氣行程、景點以及各種美食小吃，讓你依照喜好隨時規劃旅行各個行程景點。
 
-# 介面導覽
+# 使用導覽
 
-進入旅遊規劃網首頁後，可以看到人氣景點
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/00.png?raw=true)
+### 首先先登入會員來使用會員功能
 
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01.png?raw=true)
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/05.png?raw=true)
 
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/02.png?raw=true)
+### 進入旅遊規劃網首頁後，可以看到人氣景點
+
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01-3.png?raw=true)
+
+### 想觀看收藏的旅遊包可從左方功能區進入
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/04.png?raw=true)
+
+### 如想自行規劃行程點，可進入"個人行程"來規劃
+
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/02-1.png?raw=true)
+
+### 使用者可自行輸入"名稱"、"日期"以及"備註"
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/03.png?raw=true)
+
 # 使用套件
 ## [Start Bootstrap - Simple Sidebar](https://startbootstrap.com/template-overviews/simple-sidebar/)
 
@@ -109,7 +120,8 @@ Google Maps Android API 包括內建的協助工具支援。 本節包含協助�
 
 ### 優點
 
-#### 適用於各種平台的 Google 地圖         ![image](https://ppt.cc/fLWn0x@.png)](https://developers.google.com/maps/android/?hl=zh-tw)
+#### 適用於各種平台的 Google 地圖         [![image](https://ppt.cc/fLWn0x@.png)](https://developers.google.com/maps/android/?hl=zh-tw) [![image](https://ppt.cc/fKCYOx@.png)](https://developers.google.com/maps/web-services/?hl=zh-tw) [![image](https://ppt.cc/fcCKYx@.png)](https://developers.google.com/maps/ios/?hl=zh-tw) [![image](https://ppt.cc/frgejx@.png)](https://developers.google.com/maps/web/?hl=zh-tw)
+
 
 Google Maps API 適用於 Android、iOS、Web 瀏覽器，而且可透過 HTTP Web 服務使用。  
 ![image](https://ppt.cc/fa9iMx@.png)
