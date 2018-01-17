@@ -120,8 +120,8 @@ Google Maps Android API 包括內建的協助工具支援。 本節包含協助�
 
 ### 優點
 
-#### 適用於各種平台的 Google 地圖         [![image](https://ppt.cc/fLWn0x@.png)](https://developers.google.com/maps/android/?hl=zh-tw) 
-[![image](https://ppt.cc/fKCYOx@.png)](https://developers.google.com/maps/android/?hl=zh-tw)
+#### 適用於各種平台的 Google 地圖         [![image](https://ppt.cc/fLWn0x@.png)](https://developers.google.com/maps/android/?hl=zh-tw) [![image](https://ppt.cc/fKCYOx@.png)](https://developers.google.com/maps/web-services/?hl=zh-tw) [![image](https://ppt.cc/fcCKYx@.png)](https://developers.google.com/maps/ios/?hl=zh-tw) [![image](https://ppt.cc/fxyIBx@.png)](https://developers.google.com/maps/web/?hl=zh-tw)
+
 
 Google Maps API 適用於 Android、iOS、Web 瀏覽器，而且可透過 HTTP Web 服務使用。  
 ![image](https://ppt.cc/fa9iMx@.png)
