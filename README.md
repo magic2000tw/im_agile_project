@@ -4,12 +4,22 @@
 
 # 使用導覽
 
-進入旅遊規劃網首頁後，可以看到人氣景點
+#### 首先先登入會員來使用會員功能
+
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/05.png?raw=true)
+
+#### 進入旅遊規劃網首頁後，可以看到人氣景點
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01-3.png?raw=true)
 
+#### 想觀看收藏的旅遊包可從左方功能區進入
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/04.png?raw=true)
+
+#### 如想自行規劃行程點，可進入"個人行程"來規劃
+
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/02-1.png?raw=true)
+
+#### 使用者可自行輸入"名稱"、"日期"以及"備註"
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/03.png?raw=true)
 
