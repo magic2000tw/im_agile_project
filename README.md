@@ -7,14 +7,11 @@
 進入旅遊規劃網首頁後，可以看到人氣景點
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/05.png?raw=true)
 
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01-2.png?raw=true)
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/01-3.png?raw=true)
 
-![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/02.png?raw=true)
+![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/02-1.png?raw=true)
 
 ![imag](https://github.com/magic2000tw/im_agile_project/blob/master/plan_your_travel/documents_and_files/PNG/03.png?raw=true)
-
-# 使用手冊
-
 
 # 使用套件
 ## [Start Bootstrap - Simple Sidebar](https://startbootstrap.com/template-overviews/simple-sidebar/)
