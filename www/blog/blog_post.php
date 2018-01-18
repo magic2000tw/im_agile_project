@@ -1,11 +1,11 @@
-<?php include("connections/connections.php");?>
+<?php include("dbconnect.php");?>
 
 <?php 
 $id = $_GET['Id'];//接收Id
 
-$query_cn_blog = "SELECT * FROM blog WHERE Id = $id";
-$sql = mysql_query($query_cn_blog, $link) or die(mysql_error());
-$row = mysql_fetch_assoc($sql);
+$query_blog = "SELECT * FROM blog WHERE Id = $id";
+$sql = mysqli_query($conn,$query_blog) or die(mysqli_error());
+$row = mysqli_fetch_assoc($sql);
 
 // $sql = mysql_query("SELECT * FROM `blog` WHERE `Id`=$id");
 // $row = mysql_fetch_array($sql);

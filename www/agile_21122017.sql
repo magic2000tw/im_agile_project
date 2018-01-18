@@ -66,8 +66,8 @@ CREATE TABLE `trip` (
 INSERT INTO `trip` (`id`, `username`, `start_date`, `end_date`, `name`, `about`, `cover_location`) VALUES
 (1, 'haha', '2017-12-08', '2017-12-15', '埔里哪裡好？', '好山好水好無聊', ''),
 (2, 'two', '2017-12-01', '2017-12-04', '台北', '交通都超方便的', ''),
-(3, '簡靖騰', '2017-12-20', '2017-12-21', '又去台中', '只為了臭豆腐', 'https://localhost/agile_git/im_agile_project/www/picture/trave_cover/3.jpg'),
-(4, '簡靖騰', '2017-12-01', '2017-12-02', '暨大', '待在宿舍', 'https://localhost/agile_git/im_agile_project/www/picture/trave_cover/4.jpg');
+(3, '簡靖騰', '2017-12-20', '2017-12-21', '又去台中', '只為了臭豆腐', 'https://localhost/www/picture/trave_cover/3.jpg'),
+(4, '簡靖騰', '2017-12-01', '2017-12-02', '暨大', '待在宿舍', 'https://localhost/www/picture/trave_cover/4.jpg');
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `loginMail`, `userName`, `password`, `profile_location`) VALUES
 (1, 'test@mail.com', 'haha', 1234, ''),
 (2, '222@mail.com', 'two', 1234, ''),
-(3, 'kan@gmail.com', '簡靖騰', 0, 'https://localhost/agile_git/im_agile_project/www/picture/profile/3.jpg');
+(3, 'kan@gmail.com', '簡靖騰', 0, 'https://localhost/www/picture/profile/3.jpg'),
+(3, 'a01@gmail.com', 'a01', 0, 'https://localhost/www/picture/profile/2.jpg');
 
 --
 -- Indexes for dumped tables

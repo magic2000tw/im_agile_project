@@ -120,7 +120,8 @@ $totalRows_cn_blog = mysqli_num_rows($blog);
                                   <td><?php echo $row_blog['Title']; ?></td>
                                   <td><?php echo $row_blog['Member_id']; ?></td>
                                   <td><a href="blog_edit.php?Id=<?php echo $row_blog['Id']; ?>">Edit</a></td>
-                                  <td><a href="blog_del.php?Id=<?php echo $row_blog['Id']; ?>">Delete</a></td>
+                                  <td><a href="blog_del.php?Id=<?php echo $row_blog['Id']; ?>">刪除</a>
+</td>
                                   </tr>
                                 <?php } while ($row_blog = mysqli_fetch_assoc($blog)); ?>
                               </tbody>

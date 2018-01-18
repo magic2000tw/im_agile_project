@@ -19,8 +19,8 @@ $rss=mysqli_fetch_array($results);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>收藏景點</title>
-    
+    <title>人氣景點</title>
+
     <!-- basic bootstrap setting -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- sidebar setting -->
@@ -32,7 +32,7 @@ $rss=mysqli_fetch_array($results);
         body{
             font-family: 'Pangolin', cursive;
         }
-        
+
     </style>
 </head>
 
@@ -61,53 +61,23 @@ $rss=mysqli_fetch_array($results);
             </div>
         </nav>
         <div class="container" style="background-color:white">
-            <a class="page-header col-md-4 mt-2" style="font-size:50px;font-weight:bold;color:#5b88fc" >收藏景點</a>
+            <a class="page-header col-md-4 mt-2" style="font-size:50px;font-weight:bold;color:#5b88fc" >人氣景點</a>
             <div class="row mt-2">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card mb-2" >
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button" >
-                            景色名稱
+                        <div class="card-img-top" style="height:300px;overflow:hidden">
+                          <img src="http://placehold.it/100x100" width="100%"/>
+                        </div>
+                        <div class="card-body" >
+                          <h4>景點名稱</h4>
+                          <small>瀏覽次數：</small>
+                          <a href="#" class="btn btn-primary btn-sm">查看</a>
+                          <a href="#" class="btn btn-success btn-sm">收藏</a>
                         </div>
                     </div>
 
                 </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
-                        </div>
-                    </div>
 
-                </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="card mb-2">
-                        <img class="card-img-top" src="http://placehold.it/200x200">
-                        <div class="card-footer text-muted" type="button">
-                                景點名稱
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>

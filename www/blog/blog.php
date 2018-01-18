@@ -1,15 +1,15 @@
-<?php include("connections/connections.php");?>
+<?php include("dbconnect.php");?>
 
 <?php 
 //頁碼
 if(isset($_GET['blog_Id'])){   
         $blog_Id = $_GET['blog_Id'];
-        $sql_count = mysql_query("SELECT * FROM `blog` WHERE `Id` = $blog_Id",$link);
+        $sql_count = mysqli_query($conn,"SELECT * FROM `blog` WHERE `Id` = $blog_Id");
 }else{
-        $sql_count = mysql_query("SELECT * FROM `blog`",$link);
+        $sql_count = mysqli_query($conn,"SELECT * FROM `blog`");
 }    
 //echo mysql_errno() . ": " . mysql_error(). "\n";
-$total_count = mysql_num_rows($sql_count);      //總筆數
+$total_count = mysqli_num_rows($sql_count);      //總筆數
 $page_num = 6;                    //預設產品數
 $total_page = ceil($total_count/$page_num);     //總頁數
 $mod_num = fmod($total_count,$page_num);        //取餘數
@@ -23,9 +23,9 @@ if(isset($_GET['blog_Id'])){
               $page = $_GET['page'];
               if ($page!=""){ $page=$_GET['page'];}else{  $page=1;}
               $begin = ($page-1) * $page_num; 
-              $sql = mysql_query("SELECT * FROM blog WHERE Id=$blog_Id ORDER BY Id ASC LIMIT $begin,$per_count");
+              $sql = mysqli_query("SELECT * FROM blog WHERE Id=$blog_Id ORDER BY Id ASC LIMIT $begin,$per_count");
           }else {
-              $sql = mysql_query("SELECT * FROM blog WHERE Id=$blog_Id ORDER BY Id ASC LIMIT $per_count");
+              $sql = mysqli_query("SELECT * FROM blog WHERE Id=$blog_Id ORDER BY Id ASC LIMIT $per_count");
           }
   
              
@@ -45,9 +45,9 @@ if(isset($_GET['start'],$_GET['end'])){
                 $page = $_GET['page'];
                 if ($page!=""){ $page=$_GET['page'];}else{  $page=1;}
                 $begin = ($page-1) * $page_num; 
-                $sql = mysql_query("SELECT * FROM `blog` ORDER BY `Id` ASC LIMIT $begin,$per_count",$link);
+                $sql = mysqli_query($conn,"SELECT * FROM `blog` ORDER BY `Id` ASC LIMIT $begin,$per_count");
             }else{
-                $sql = mysql_query("SELECT * FROM `blog` ORDER BY `Id` ASC LIMIT $per_count",$link);
+                $sql = mysqli_query($conn,"SELECT * FROM `blog` ORDER BY `Id` ASC LIMIT $per_count");
                }            
   if(isset($_GET['start'],$_GET['end'])){
                           $start = $_GET['start']+1;
@@ -159,7 +159,7 @@ if(isset($_GET['start'],$_GET['end'])){
 
             <div class="col-md-8" style="margin-top:20px">
 
-              <?php while($row=mysql_fetch_array($sql)){?>
+              <?php while($row=mysqli_fetch_array($sql)){?>
               <!-- Blog Post 1 -->
               <div class="col-md-12">
                 <div class="blog_post" data-wow-delay=".1s" data-wow-duration="2s">
