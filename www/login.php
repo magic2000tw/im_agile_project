@@ -36,7 +36,7 @@ $_SESSION['sID'] = 0;
 
     <div id="wrapper">
 
-        
+
         <!-- Page Content -->
         <nav class="navbar navbar-light " style="background-color:#5b88fc">
             <div class="container">
@@ -46,9 +46,9 @@ $_SESSION['sID'] = 0;
                         <a><img class="img-responsive"src="logo.png" width="15%" align="center"></a>
                         <a><img class="img-responsive"src="name3.png" width="50%" align="center"></a>
                     </div>
-                
+
                 </div><!-- / .navbar-header -->
-                
+
             </div>
         </nav>
         <div class="container col-md-6">

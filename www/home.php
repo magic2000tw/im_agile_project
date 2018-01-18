@@ -41,7 +41,7 @@ $rss=mysqli_fetch_array($results);
             <div class="row">
               <div class="col-md-12">
                 <div class="card mt-4" style="background-color:#5b88fc">
-              
+
                   <div class="card-body">
                       <?php
                       require_once("model.php");
@@ -51,12 +51,12 @@ $rss=mysqli_fetch_array($results);
                       <img src="',$rs['profile_location'],'" width="100%" style="display: block;margin:0 auto;">';
                       ?>
                   </div>
-              
-              
+
+
                   <div class="card-footer d-flex justify-content-center"style="background-color:gray;">
                       <small style="color:white;"><?php echo $rss['userName'];?></small>
                   </div>
-              
+
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ $rss=mysqli_fetch_array($results);
             <div class="container" >
 
                 <div class="navbar-header">
-                
+
                     <div>
                         <a><img class="img-responsive"src="logo.png" height="80px"align="center"></a>
                         <a><img class="img-responsive"src="name3.png" height="50px" align="center"></a>
@@ -98,14 +98,15 @@ $rss=mysqli_fetch_array($results);
         <div class="container col-md-8" style="background-color:white">
             <h2 class="page-header col-md-4 mt-2" style="font-weight:bold;color:#5b88fc" >我的行程</h2><button type="button" class="btn btn-sm btn-success mt-2" align="right
             " style="font-weight:bold;color:white" >新增</button>
-            
+
             <div class="row mt-2">
                 <div class="col-md-8" >
                     <?php
                         require_once("model.php");
                         $userName=$rss['userName'];
                         $_SESSION['username'] = $userName;
-                        $results=getmyTrip($userName);
+                        // $results=getmyTrip($userName);
+                        $results=getFollowList($userName);
                         while($rs=mysqli_fetch_array($results)){
                             echo "<div class='card mb-4'>
                                 <img class='card-img-top ' style='height:250px;overflow:hidden' src='",$rs['cover_location'],"'>
@@ -117,10 +118,10 @@ $rss=mysqli_fetch_array($results);
                                     <div class='card-footer text-muted'>
                                         ",$rs['start_date']," 至 ",$rs['end_date'],"
                                     </div>
-                                </div>";   
+                                </div>";
                         }
                     ?>
-                    
+
                 </div>
             </div>
         </div>

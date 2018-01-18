@@ -4,13 +4,13 @@ $action =$_REQUEST['act'];
 
 switch ($action) {
 case 'login':
-	$loginMail = $_POST['loginMail']; 
+	$loginMail = $_POST['loginMail'];
 	$passWord = $_POST['password'];
-	
+
 	if ($id = checkUP($loginMail,$passWord) ) {
 		$_SESSION['userid'] = $id;
 		//$_SESSION['username']=$row['userName'];
-		header('Location: https://localhost/agile_git/im_agile_project/www/kan/home.html');
+		header('Location: ../www/home.php');
 //		echo "Login OK <br />";
 //		echo '<a href="test_view_trip.php">VIEW</a> ';
 	} else {

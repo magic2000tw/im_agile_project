@@ -2,7 +2,7 @@
 require("dbconnect.php");
 function getUsername($id){
 	global $conn;
-	$sql="select userName from user where id=$id";
+	$sql="select * from user where id=$id";
 	return mysqli_query($conn,$sql);
 }
 function getTripList($userName){
@@ -43,7 +43,7 @@ function deleteFollow($id){
 	$id=(int)$id;
 	$sql="delete from follow where id=$id";
 	return mysqli_query($conn,$sql);
-}	
+}
 function copyTrip($userId,$userName,$tripName){
 	global $conn;
 	$userId=(int)$userId;
